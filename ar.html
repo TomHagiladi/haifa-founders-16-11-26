@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>دليل التمارين - الذكاء الاصطناعي شريككم المؤسِّس</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/practice.css">
+</head>
+<body>
+<a href="#main-content" class="skip-link">انتقل إلى المحتوى الرئيسي</a>
+
+<nav class="langbar" aria-label="اللغة">
+  <a href="index.html" lang="en" hreflang="en">English</a>
+  <a href="he.html" lang="he" hreflang="he" dir="rtl">עברית</a>
+  <a href="ar.html" lang="ar" hreflang="ar" dir="rtl" aria-current="page">العربية</a>
+</nav>
+
+<header class="top">
+  <div>
+    <h1>دليل التمارين &middot; الذكاء الاصطناعي شريككم المؤسِّس</h1>
+    <p>جامعة حيفا &middot; <span lang="en" dir="ltr">Haifa Innovation Labs (HIL)</span> &middot; برنامج بلورة الأفكار مع <span lang="en" dir="ltr">50:50 Startups</span> &middot; 16.11.2026</p>
+  </div>
+  <img src="assets/logo.png" alt="توم هغلعادي - الشعار">
+</header>
+
+<nav class="parts" aria-label="أجزاء التمرين">
+  <a class="n1" href="#part1">1. فكّروا</a>
+  <a class="n2" href="#part2">2. ابحثوا</a>
+  <a class="n3" href="#part3">3. اختبروا</a>
+  <a class="n4" href="#part4">4. اعرضوا</a>
+  <a class="nf" href="#next">أسبوعكم القادم</a>
+</nav>
+
+<main id="main-content">
+
+<div class="intro">
+  <h2>كيف تستخدمون هذه الصفحة</h2>
+  <ol>
+    <li><b>عدّلوا الموجّه هنا، داخل المربع.</b> كل موجّه هو مجرد اقتراح. املؤوا ما بين الأقواس واجعلوه خاصًّا بكم.</li>
+    <li><b>اضغطوا على «نسخ».</b> تُنسخ النسخة التي عدّلتموها.</li>
+    <li><b>الصقوه في أي محادثة مجانية:</b> <span lang="en" dir="ltr">Gemini</span> أو <span lang="en" dir="ltr">ChatGPT</span> أو <span lang="en" dir="ltr">Claude</span> أو غيرها.</li>
+  </ol>
+  <p>أجيبوا بالعربية أو العبرية أو الإنجليزية - بما هو أسهل لكم. وأضيفوا «أجب بالعربية» أو «أجب بالإنجليزية» إذا أردتم.</p>
+  <p class="rule"><strong class="red">قاعدة واحدة:</strong> لا شيء مما يقوله الذكاء الاصطناعي يُعدّ دليلًا. كل إجابة تحصل على وسم:</p>
+  <div class="tags">
+    <span class="tag k">معروف</span> دليل من أشخاص حقيقيين: مَن، ومتى، وكم عددهم
+  </div>
+  <div class="tags">
+    <span class="tag a">افتراض</span> اعتقادنا، أو بحث مكتبي، أو أي شيء اقترحه الذكاء الاصطناعي
+  </div>
+  <div class="tags">
+    <span class="tag u">غير معروف</span> لا إجابة بعد - وهذه إجابة جيدة
+  </div>
+</div>
+
+<!-- ============ PART 1 ============ -->
+<section class="part" id="part1" aria-labelledby="h-part1">
+  <h2 id="h-part1">الجزء 1 &middot; فكّروا مع الذكاء الاصطناعي: دعوا المحادثة تُجري معكم مقابلة</h2>
+  <p class="lead">لصقتان: الموجّه الرئيسي، ثم إطار عمل واحد تحته. شخص واحد يكتب، والفريق يجيب معًا.</p>
+
+  <div class="step">
+    <h3><span class="n">1</span>الموجّه الرئيسي</h3>
+    <p>يحوّل المحادثة المجانية إلى شريك مؤسِّس متشكّك يسأل سؤالًا واحدًا في كل مرة، ويضع وسمًا لكل إجابة، ولا يملأ شيئًا بدلًا منكم.</p>
+    <div class="prompt-box">
+      <label for="m1">الموجّه الرئيسي &middot; <span class="sug">اقتراح - عدّلوه هنا</span></label>
+      <textarea class="prompt" id="m1">تصرّف كشريكي المؤسِّس المتشكّك. أجرِ معي مقابلة لملء إطار العمل الملصق أدناه. استخرج مني ما أعرفه أصلًا، وفكّر معي في ما لا أعرفه. لا تملأه بدلًا مني أبدًا.
+
+القواعد:
+1. تقدّم قسمًا واحدًا في كل مرة. اسأل سؤالًا واحدًا فقط، ثم انتظر إجابتي.
+2. صنّف كل إجابة: معروف (دليل يمكنني إظهاره: سلوك سابق لشخص حقيقي، بيانات، دفع)، افتراض (اعتقادي، بلا دليل بعد) أو غير معروف. اذكر السبب في سطر واحد.
+3. قبل أن تحكم على أي ادعاء من ادعاءاتي، أعد صياغته كسؤال («هل صحيح أن...؟»).
+4. إذا كانت الإجابة غامضة أو تخمينية أو عامة («الناس سيحبّونه»، «الجميع»)، فاعترض: اطلب شخصًا محددًا، أو مثالًا حقيقيًا من الماضي، أو رقمًا. إذا بقيت غامضة بعد محاولتين، فصنّفها «افتراض» وانتقل إلى ما بعدها.
+5. احكم على الفكرة كأنها فكرة شخص غريب. بلا مديح. أشِر إلى التناقضات بين الأقسام.
+6. ضع على أي فكرة من عندك الوسم «اقتراح من الذكاء الاصطناعي - غير مُتحقَّق منه».
+7. اجعل كل ردّ من ردودك أقل من 80 كلمة. قد أجيب بالعربية أو العبرية أو الإنجليزية؛ أجب بالعربية.
+
+عندما ننتهي من جميع الأقسام، اكتب:
+أ. إطار العمل مكتملًا على شكل جدول (القسم، إجابتي، الوسم).
+ب. أخطر 3 افتراضات (بنود «افتراض» أو «غير معروف» قد تُسقط الفكرة إذا تبيّن أنها خاطئة)، مرتّبة، مع السبب.
+ج. لكل واحد منها، أرخص اختبار يمكنني إجراؤه هذا الأسبوع (ويُفضَّل أن يكون محادثة عن سلوك سابق لشخص ما، لا عرضًا ترويجيًا للفكرة) والنتيجة التي ستغيّر رأيي.
+
+أولًا اسأل: مَن لديه المشكلة، وما هي؟
+
+إطار العمل:
+[الصقوا هنا إطار عمل واحدًا من القائمة أدناه]</textarea>
+    </div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">2</span>اختاروا إطار عمل واحدًا يناسب مرحلتكم</h3>
+    <p>افتحوا الإطار الذي يناسب السؤال الذي علِق عنده فريقكم، وانسخوه، والصقوه تحت «إطار العمل:».</p>
+
+    <details class="fw">
+      <summary>هل المشكلة تستحق الحل؟ &middot; المعايير الأربعة (<span lang="en" dir="ltr">4 U's</span>) + لماذا الخمسة (<span lang="en" dir="ltr">5 Whys</span>) <span lang="en" dir="ltr">(Michael Skok; Toyota)</span></summary>
+      <div class="inner"><div class="prompt-box"><label for="f1">إطار العمل</label>
+      <textarea class="prompt" id="f1">فحص المشكلة (المعايير الأربعة 4 U's لـ Michael Skok + لماذا الخمسة 5 Whys). الأقسام:
+1. المشكلة في جملة واحدة - مَن يعاني منها، ومتى.
+2. لا تُحتمل (Unworkable) - ما الذي يتعطّل، أو كم تكلّفهم، عندما تحدث؟
+3. لا مفرّ منها (Unavoidable) - هل هي مفروضة عليهم (أنظمة، مرحلة في الحياة، روتين)؟
+4. عاجلة (Urgent) - هل هي ضمن أولوياتهم الثلاث الأولى الآن؟
+5. لا تحظى بحل كافٍ (Underserved) - ماذا يستخدمون اليوم، ولماذا لا يكفي؟
+6. لماذا الخمسة - اسأل «لماذا يحدث هذا؟» مرة بعد مرة حتى نصل إلى السبب الجذري.
+7. عبارة المهمة - «عندما [الموقف]، يريدون [الدافع]، كي [النتيجة].»</textarea></div></div>
+    </details>
+
+    <details class="fw">
+      <summary>مَن بالضبط؟ &middot; سوق رأس الجسر (<span lang="en" dir="ltr">Beachhead</span>) والشخصية النموذجية <span lang="en" dir="ltr">(Bill Aulet, Disciplined Entrepreneurship, MIT)</span></summary>
+      <div class="inner"><div class="prompt-box"><label for="f2">إطار العمل</label>
+      <textarea class="prompt" id="f2">مَن بالضبط؟ (ريادة الأعمال المنضبطة - Disciplined Entrepreneurship، Bill Aulet). الأقسام:
+1. شرائح السوق - اذكر 5-10 مجموعات عملاء محتملة.
+2. سوق رأس الجسر (Beachhead) - اختر مجموعة واحدة فقط: لديهم المال، ونستطيع الوصول إليهم، والحاجة قوية، والمنافسون قليلون، والفوز بهم يساعدنا على الفوز بالمجموعة التالية.
+3. ملف المستخدم النهائي - مَن هم، وما عاداتهم، وأين يجتمعون.
+4. الشخصية النموذجية - شخص حقيقي واحد نعرفه بالاسم وتنطبق عليه الصفات. كيف يبدو يومه العادي؟
+5. العملاء العشرة التالون - اذكر 10 أشخاص أو مؤسسات حقيقية تنطبق عليهم الصفات.
+6. فحص الحجم - كم يوجد تقريبًا من أمثالهم؟ صنّف كل رقم «افتراض» ما لم يكن له مصدر.</textarea></div></div>
+    </details>
+
+    <details class="fw">
+      <summary>ماذا يحتاجون حقًّا؟ &middot; مخطط عرض القيمة (<span lang="en" dir="ltr">Value Proposition Canvas</span>) <span lang="en" dir="ltr">(Strategyzer.com)</span></summary>
+      <div class="inner"><div class="prompt-box"><label for="f3">إطار العمل</label>
+      <textarea class="prompt" id="f3">مخطط عرض القيمة (Value Proposition Canvas، Strategyzer.com). الأقسام:
+ملف العميل (شريحة واحدة فقط):
+1. المهام - ما الذي يحاولون إنجازه (عمليًا، اجتماعيًا، عاطفيًا).
+2. الآلام - ما يزعجهم، والمخاطر، والعقبات. رتّب أهم 3.
+3. المكاسب - النتائج التي يريدونها. رتّب أهم 3.
+خريطة القيمة (فقط بعد ترتيب أهم 3 آلام):
+4. المنتجات والخدمات.
+5. مخفّفات الألم - أيّ ألم من الآلام الرئيسية يزيله كل منها؟
+6. صانعات المكاسب - أيّ مكسب من المكاسب الرئيسية يحققه كل منها؟
+7. الملاءمة - أيّ الآلام والمكاسب الرئيسية لم تُعالَج بعد؟</textarea></div></div>
+    </details>
+
+    <details class="fw">
+      <summary>أيّ حل نختار؟ &middot; شجرة الفرص والحلول (<span lang="en" dir="ltr">Opportunity Solution Tree</span>) <span lang="en" dir="ltr">(Teresa Torres)</span></summary>
+      <div class="inner"><div class="prompt-box"><label for="f4">إطار العمل</label>
+      <textarea class="prompt" id="f4">شجرة الفرص والحلول (Opportunity Solution Tree، Teresa Torres). الأقسام:
+1. النتيجة - نتيجة واحدة قابلة للقياس نريدها (مثلًا: «طلاب يطلبون للمرة الثانية»).
+2. الفرص - احتياجات العملاء وآلامهم ورغباتهم، مستخلصة من قصص حقيقية. اختبر كل واحدة: هل توجد أكثر من طريقة لحلها؟ إن لم توجد، فهي حلّ متنكّر في شكل فرصة.
+3. الفرصة المستهدفة - اختر واحدة.
+4. الحلول - 3 حلول مختلفة لها على الأقل، قبل أن نختار.
+5. اختبارات الافتراضات - لكل حل: ما الذي يجب أن يكون صحيحًا، وكيف يمكننا اختباره بسرعة؟</textarea></div></div>
+    </details>
+
+    <details class="fw">
+      <summary>كيف سنكسب المال؟ &middot; المخطط الرشيق (<span lang="en" dir="ltr">Lean Canvas</span>) <span lang="en" dir="ltr">(Ash Maurya)</span></summary>
+      <div class="inner"><div class="prompt-box"><label for="f5">إطار العمل</label>
+      <textarea class="prompt" id="f5">المخطط الرشيق (Lean Canvas، Ash Maurya). املأه بهذا الترتيب:
+1. المشكلة - أهم 3 مشكلات + البدائل الموجودة (كيف يحلّونها اليوم).
+2. شرائح العملاء - + المتبنّون الأوائل (مَن يشعر بالمشكلة أكثر من غيره).
+3. عرض القيمة الفريد - جملة واحدة واضحة + فكرة قصيرة على شكل «X لـ Y».
+4. الحل - أبسط إجابة لكل مشكلة من المشكلات الرئيسية.
+5. القنوات - كيف نصل إلى العملاء.
+6. مصادر الإيرادات - مَن يدفع، وكم، وكم مرة.
+7. هيكل التكاليف - التكاليف الرئيسية.
+8. المقاييس الأساسية - الأرقام القليلة التي تُظهر أن المشروع ينجح.
+9. الميزة غير العادلة - شيء لا يمكن نسخه أو شراؤه بسهولة.</textarea></div></div>
+    </details>
+
+    <details class="fw">
+      <summary>ما الذي قد يقضي علينا؟ &middot; التحليل الاستباقي للفشل (<span lang="en" dir="ltr">Pre-mortem</span>) <span lang="en" dir="ltr">(Gary Klein)</span></summary>
+      <div class="inner"><div class="prompt-box"><label for="f6">إطار العمل</label>
+      <textarea class="prompt" id="f6">التحليل الاستباقي للفشل (Pre-mortem، Gary Klein). الأقسام:
+1. مرّت سنة من اليوم. الشركة الناشئة فشلت.
+2. اسألني عن كل سبب لفشلها، سببًا واحدًا في كل مرة. لا تقترح أسبابًا حتى أنتهي من ذكر كل أسبابي.
+3. ثم أضف الأسباب التي فاتتني، مع الوسم «اقتراح من الذكاء الاصطناعي».
+4. حوّل أهم 3 أسباب إلى افتراضات: «نعتقد أن...».
+5. لكل واحد منها، أرخص اختبار يمكننا إجراؤه هذا الأسبوع.</textarea></div></div>
+    </details>
+
+    <div class="tip info"><strong>احفظوا جدولكم.</strong> عندما تعطيكم المحادثة الجدول النهائي، انسخوه إلى مستند أو ملاحظة. ستحتاجونه في الجزأين 3 و4. وإذا نفدت رسائل المحادثة المجانية، الصقوا الجدول في محادثة جديدة وتابعوا.</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">3</span>ثلاث عادات تجعل المحادثة أكثر صدقًا</h3>
+    <ul class="plain">
+      <li><b>اسألوا، لا تقرّروا:</b> «هل صحيح أن...؟» بدلًا من «الطلاب يحتاجون...».</li>
+      <li><b>بصيغة الغائب:</b> «فريق طلابي يقترح...» بدلًا من «فكرتي».</li>
+      <li><b>اعترضوا:</b> ردّوا بـ«هل أنت متأكد؟». إذا انهار نقدها، فقد كان ضعيفًا من الأساس.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PART 2 ============ -->
+<section class="part p2" id="part2" aria-labelledby="h-part2">
+  <h2 id="h-part2">الجزء 2 &middot; ابحثوا في العالم الخارجي</h2>
+  <p class="lead">النموذج اللغوي مخصّص للأفكار والأسئلة. أما الحقائق والأرقام والمنافسون، فاستخدموا لها أداة تُظهر مصادرها - وافتحوا تلك المصادر.</p>
+
+  <div class="step">
+    <h3><span class="n">1</span>البحث المعمّق (<span lang="en" dir="ltr">Deep Research</span>): تقرير سوق موثّق بالمصادر</h3>
+    <p>يقرأ وكيل ذكاء اصطناعي عشرات المصادر لمدة 5-10 دقائق، ثم يكتب تقريرًا مع إحالات إلى المصادر. في حساب مجاني، جرّبوا <b lang="en" dir="ltr">Gemini</b>: اختاروا البحث المعمّق من قائمة الأدوات (<span lang="en" dir="ltr">Tools</span>). تقرير واحد يستهلك جزءًا كبيرًا من الحدّ المجاني، وتقول <span lang="en" dir="ltr">Google</span> إنه قد لا يكون متاحًا في أوقات الضغط - لذا شغّلوا تقريرًا <b>واحدًا</b> فقط، واتركوا المحادثة العادية لكل ما عدا ذلك. يمنح <span lang="en" dir="ltr">ChatGPT</span> عددًا محدودًا من التشغيلات المجانية، ويمنح <span lang="en" dir="ltr">Perplexity</span> تشغيلًا واحدًا في الشهر.</p>
+    <div class="prompt-box">
+      <label for="r1">الموجّه &middot; <span class="sug">اقتراح - عدّلوه هنا</span></label>
+      <textarea class="prompt" id="r1">ابحث في سوق [وصف مشروعنا في جملة واحدة] في [إسرائيل / الشرق الأوسط / مدينتنا].
+أحتاج إلى:
+1. مَن يعاني من هذه المشكلة، وكم عددهم (مع المصادر).
+2. كيف يحلّ الناس المشكلة اليوم.
+3. أقرب 5-10 منافسين أو بدائل: الاسم، الرابط، السعر، ما يجيدونه، وما ينقصهم.
+4. الاتجاهات خلال السنتين الأخيرتين.
+5. ما الذي قد يجعل الأمر صعبًا (أنظمة وقوانين، عادات، لاعبون كبار).
+اذكر مصدرًا لكل رقم. إذا لم تجد مصدرًا، فقل ذلك - لا تقدّر الأرقام بصمت.</textarea>
+    </div>
+    <div class="tip check"><strong>قبل أن تثقوا به:</strong> افتحوا 3 من مصادره. أي رقم بلا مصدر هو «افتراض». ثم اسألوه: «ما الذي لم تجده؟»</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">2</span><span lang="en" dir="ltr">Gemini Notebook</span>: فكّروا انطلاقًا من موادكم أنتم</h3>
+    <p>يجيب <span lang="en" dir="ltr">Gemini Notebook</span> (سابقًا <span lang="en" dir="ltr">NotebookLM</span>) من مصادركم <b>أنتم</b> فقط، مع إحالات إليها. أنشئوا دفترًا واحدًا لسوقكم وحمّلوا فيه: ملاحظات المقابلات، ومواقع المنافسين، وأوراقًا بحثية، وفيديو من <span lang="en" dir="ltr">YouTube</span>، وتقرير البحث المعمّق الخاص بكم.</p>
+    <div class="links"><a href="https://notebooklm.google/" target="_blank" rel="noopener"><b lang="en">Gemini Notebook</b><span lang="en">notebooklm.google</span></a></div>
+    <div class="prompt-box">
+      <label for="r2">أسئلة اطرحوها على كل مصادركم معًا &middot; <span class="sug">عدّلوها هنا</span></label>
+      <textarea class="prompt" id="r2">1. ما المشكلات الثلاث التي يذكرها الناس أكثر من غيرها؟ اقتبس كلامهم.
+2. أين تختلف مصادري فيما بينها؟
+3. بماذا يَعِد المنافسون، ومِمَّ يشتكي مستخدموهم؟
+4. أيّ افتراضاتي تدعمها هذه المصادر، وأيّها تناقضها؟ [الصقوا جدولكم هنا]
+5. ما الناقص - ما الذي عليّ أن أكتشفه بعد ذلك؟</textarea>
+    </div>
+    <div class="tip info"><strong>جرّبوا أيضًا:</strong> خريطة ذهنية لسوقكم، أو ملخّصًا صوتيًا تستمعون إليه في الحافلة - ويمكن إنشاؤه بالعربية أيضًا.</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">3</span>فحوصات سريعة مع <span lang="en" dir="ltr">Perplexity</span></h3>
+    <div class="prompt-box">
+      <label for="r3">الموجّه &middot; <span class="sug">اقتراح - عدّلوه هنا</span></label>
+      <textarea class="prompt" id="r3">مَن هم المنافسون الرئيسيون في مجال [ما نقوم به] في [المنطقة]؟ اصنع جدولًا: الاسم، الرابط، السعر، العميل المستهدف، ونقطة الضعف الرئيسية التي يشتكي منها المستخدمون في المراجعات. مصدر لكل صف.</textarea>
+    </div>
+    <div class="prompt-box">
+      <label for="r4">السؤال الذي يجب أن تطرحه كل شركة ناشئة في الذكاء الاصطناعي &middot; <span class="sug">عدّلوه هنا</span></label>
+      <textarea class="prompt" id="r4">فريق طلابي يقترح [وصف الفكرة في جملة واحدة]. ماذا يحدث إذا أضاف ChatGPT أو Gemini أو Google هذه الفكرة كميزة في السنة القادمة؟ أيّ جزء منها سيبقى صعب النسخ؟</textarea>
+    </div>
+  </div>
+
+  <div class="step" id="patents">
+    <h3><span class="n">4</span>براءات الاختراع: هل سبقنا أحد إلى ذلك؟</h3>
+    <p>فحص أوّلي سريع، 15 دقيقة. <b>صِفوا الفكرة من دون الجزء السرّي</b>، وأوقفوا التدريب في المحادثة أولًا (انظروا «أسبوعكم القادم» في الأسفل).</p>
+    <p>كل أداة براءات تبحث بطريقتها الخاصة. بدلًا من تخمين الكلمات المناسبة، <b>دعوا المحادثة تُجري معكم مقابلة عن الفكرة، وتتعلّم كيف تبحث كل أداة على أفضل وجه، وتكتب لكم الاستعلام</b> - واحدًا لـ<span lang="en" dir="ltr">PQAI</span>، وواحدًا لـ<span lang="en" dir="ltr">Google Patents</span>، وواحدًا لـ<span lang="en" dir="ltr">Perplexity Patents</span>.</p>
+    <div class="prompt-box">
+      <label for="r5">الخطوة 1 - دعوا المحادثة تكتب استعلامات البحث &middot; <span class="sug">عدّلوه هنا</span></label>
+      <textarea class="prompt" id="r5">أريد أن أتحقق مما إذا كانت فكرتي قد سُجّلت كبراءة اختراع من قبل. ساعدني في كتابة أفضل استعلامات بحث ممكنة.
+
+1. أجرِ معي مقابلة أولًا. اسألني سؤالًا واحدًا في كل مرة عن الفكرة - المشكلة، والأجزاء الرئيسية، وكيف تعمل معًا، وما الجديد فيها - حتى تفهمها بما يكفي للبحث. وذكّرني بألّا أشارك الجزء السرّي.
+2. ثم تعلّم كيف تبحث كل أداة من هذه الأدوات على أفضل وجه. إذا كنت تستطيع تصفّح الويب، فابحث أولًا عن نصائح البحث الخاصة بها؛ وإن لم تستطع، فقل ذلك واستخدم ما تعرفه:
+   - PQAI (search.projectpq.ai) - بحث بالذكاء الاصطناعي يقرأ وصفًا تقنيًا بلغة بسيطة، مثل ملخّص براءة اختراع.
+   - Google Patents (patents.google.com) - كلمات مفتاحية ومرادفات، وOR داخل الأقواس، وAND بين المفاهيم، وعلامات تنصيص للعبارات الدقيقة، وتصنيفات CPC.
+   - Perplexity Patents - سؤال بكلمات بسيطة.
+3. اكتب استعلامًا واحدًا لكل أداة، باللغة الإنجليزية، ومصمَّمًا وفق الطريقة التي تعمل بها تلك الأداة على أفضل وجه. أضف أرجح 3 تصنيفات CPC، مع تعريف من سطر واحد لكل منها.
+4. اشرح كل استعلام في سطر واحد، كي أستطيع تعديله.
+لا تذكر براءات اختراع محددة ولا أرقام براءات.
+
+فكرتي في بضع كلمات: [جملة أو جملتان - من دون تفاصيل سرّية]</textarea>
+    </div>
+    <p><b>الخطوة 2 - ابحثوا.</b> الصقوا كل استعلام في أداته. في <span lang="en" dir="ltr">Google Patents</span>، فعّلوا خيار <span lang="en" dir="ltr">"Include non-patent literature"</span>. النتائج تبدو بعيدة عن فكرتكم؟ الصقوا ما حصلتم عليه في المحادثة واطلبوا منها تحسين الاستعلام.</p>
+    <div class="links">
+      <a href="https://search.projectpq.ai/" target="_blank" rel="noopener"><b lang="en">PQAI</b><span>بحث مجاني بالذكاء الاصطناعي</span></a>
+      <a href="https://patents.google.com/" target="_blank" rel="noopener"><b lang="en">Google Patents</b><span>مجاني، دول كثيرة، مع ترجمة</span></a>
+      <a href="https://www.perplexity.ai/patents" target="_blank" rel="noopener"><b lang="en">Perplexity Patents</b><span>أسئلة بلغة بسيطة</span></a>
+      <a href="https://patentscope.wipo.int/" target="_blank" rel="noopener"><b lang="en">WIPO PATENTSCOPE</b><span>واجهة باللغة العربية</span></a>
+      <a href="https://worldwide.espacenet.com/" target="_blank" rel="noopener"><b lang="en">Espacenet</b><span>مكتب البراءات الأوروبي</span></a>
+      <a href="https://israelpatents.justice.gov.il/search/en/home" target="_blank" rel="noopener"><b>مكتب براءات الاختراع الإسرائيلي</b><span>طلبات قُدّمت في إسرائيل</span></a>
+    </div>
+    <p><b>الخطوة 3 - اقرؤوا أقرب 3 براءات.</b> لكل منها: الملخّص، والمطالبة الأولى، ورسمًا واحدًا، والرقم، والتاريخ، والوضع القانوني. ثم اضغطوا على «<span lang="en" dir="ltr">Similar</span>» في أقربها إلى فكرتكم.</p>
+    <div class="prompt-box">
+      <label for="r6">الخطوة 4 - قارِنوا &middot; <span class="sug">عدّلوه هنا</span></label>
+      <textarea class="prompt" id="r6">إليك ملخّصات أقرب 3 براءات اختراع وجدتُها ومطالباتها الأولى: [الصقوا هنا]. اصنع جدولًا: عناصر فكرتي مقابل كل براءة. ثم أخبرني ما المختلف فعلًا في فكرتي. كن صارمًا.</textarea>
+    </div>
+    <div class="tip check"><strong>اعرفوا الحدود.</strong> هذه ليست استشارة قانونية، وعدم العثور على شيء لا يعني أن الفكرة جديدة. المحادثات تخترع أرقام براءات - افتحوا كل رقم في <span lang="en" dir="ltr">Google Patents</span>. قدّموا طلب البراءة قبل أن تنشروا: لا توجد في أوروبا وإسرائيل فترة سماح عامة. وللحصول على مساعدة مجانية من خبراء، ابحثوا عن مركز دعم التكنولوجيا والابتكار (<span lang="en" dir="ltr">TISC</span>) التابع للمنظمة العالمية للملكية الفكرية (<span lang="en" dir="ltr">WIPO</span>) - مثلًا في جامعة النجاح في نابلس.</div>
+  </div>
+</section>
+
+<!-- ============ PART 3 ============ -->
+<section class="part p3" id="part3" aria-labelledby="h-part3">
+  <h2 id="h-part3">الجزء 3 &middot; اختبروا قبل أن تبنوا</h2>
+  <p class="lead">بناء نسخة أولية من المنتج (<span lang="en" dir="ltr">MVP</span>) يستغرق أسابيع. أما أخطر افتراض لديكم فيمكن اختباره هذا الأسبوع - من دون كتابة كود.</p>
+
+  <div class="step">
+    <h3><span class="n">1</span>خريطة الافتراضات: ماذا نختبر أولًا</h3>
+    <div class="prompt-box">
+      <label for="t1">الموجّه &middot; <span class="sug">اقتراح - عدّلوه هنا</span></label>
+      <textarea class="prompt" id="t1">إليك جدولنا من المقابلة: [الصقوا هنا].
+1. أعد كتابة كل بند موسوم «افتراض» أو «غير معروف» بصيغة «نعتقد أن...».
+2. صنّف كل واحد منها: الرغبة (هل يريدونه؟)، أو الجدوى التقنية (هل نستطيع بناءه وتقديمه؟)، أو الجدوى الاقتصادية (هل تنجح المعادلة المالية؟).
+3. أعطِ كل واحد منها درجتين: الأهمية من 1 إلى 5 («إذا كان هذا خاطئًا، نفشل») والدليل من 1 إلى 5.
+4. رتّبها: المهمّ وقليل الدليل أولًا. البند الأول في القائمة هو ما نختبره أولًا.</textarea>
+    </div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">2</span>بطاقة الاختبار</h3>
+    <p>اكتبوا الرقم قبل أن تُجروا الاختبار - وإلا فستبدو كل نتيجة نجاحًا.</p>
+    <div class="prompt-box">
+      <label for="t2">الموجّه &middot; <span class="sug">اقتراح - عدّلوه هنا</span></label>
+      <textarea class="prompt" id="t2">أخطر افتراض لدينا: [الصقوا هنا].
+ساعدني في كتابة بطاقة اختبار:
+نعتقد أن...
+وللتحقق من ذلك، سوف...
+ونقيس...
+ونكون على حق إذا قام ما لا يقل عن X% من Y بـ Z، خلال [المدة].
+يجب أن يستغرق الاختبار أقل من أسبوع، وألّا يكلّف شيئًا، وألّا يحتاج إلى برمجة. اقترح 3 خيارات، ثم ساعدني في اختيار واحد منها.</textarea>
+    </div>
+    <div class="tip info"><strong>مثال:</strong> نعتقد أن الطلاب سيشترون الوجبات المتبقية في الكافتيريا مساءً بنصف السعر. سنعلّق في الكافتيريا ملصقًا عليه رابط للتسجيل. نكون على حق إذا انضمّ 15% على الأقل من الطلاب الذين يمسحون الرمز إلى قائمة الانتظار خلال 3 أيام.</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">3</span>الخيار أ &middot; صفحة هبوط («باب وهمي» - <span lang="en" dir="ltr">fake door</span>)</h3>
+    <p>صفحة لمنتج غير موجود بعد، فيها زر «انضمّ إلى قائمة الانتظار». أنشئوا أولًا نموذج <span lang="en" dir="ltr">Google Form</span> قصيرًا للتسجيلات، ثم ابنوا الصفحة.</p>
+    <div class="prompt-box">
+      <label for="t3">الموجّه &middot; <span class="sug">اقتراح - عدّلوه هنا</span></label>
+      <textarea class="prompt" id="t3">ابنِ صفحة هبوط من صفحة واحدة، في ملف HTML واحد، لـ [مشروعنا].
+- عنوان رئيسي موجَّه إلى [المتبنّين الأوائل لدينا].
+- المشكلة بكلماتهم هم.
+- 3 فوائد.
+- زر «انضمّ إلى قائمة الانتظار» يفتح [رابط نموذج Google Form الخاص بنا].
+- اذكر بوضوح أن المنتج قادم قريبًا.
+بلا أرقام مختلَقة، وبلا شهادات عملاء مزيّفة، وبلا شعارات مزيّفة. ويجب أن تبدو جيدة على الهاتف.</textarea>
+    </div>
+    <div class="tip info"><strong>كيف تشاركونها:</strong> في <span lang="en" dir="ltr">Gemini</span>، ابنوها كتطبيق تفاعلي وصدّروها إلى <span lang="en" dir="ltr">Google Sites</span> (تبدأ كمسوّدة خاصة - انشروها). في <span lang="en" dir="ltr">Claude</span>، انشروا الـ<span lang="en" dir="ltr">artifact</span> وانسخوا الرابط. أو نزّلوا الملف وأرسلوه.</div>
+    <div class="tip check"><strong>كونوا صادقين:</strong> الصفحة تقول «قريبًا». لا تأخذوا مالًا أبدًا مقابل شيء غير موجود.</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">4</span>الخيار ب &middot; أسئلة المقابلة، وتمرين تجريبي</h3>
+    <div class="prompt-box">
+      <label for="t4">أعيدوا صياغة أسئلتكم وفق اختبار الأم (<span lang="en" dir="ltr">The Mom Test</span>) &middot; <span class="sug">عدّلوه هنا</span></label>
+      <textarea class="prompt" id="t4">إليك أسئلتي لمقابلة العملاء: [الصقوا هنا].
+أعد صياغتها وفق قواعد اختبار الأم (The Mom Test): تحدّث عن حياتهم، لا عن فكرتي؛ اسأل عن أحداث محددة في الماضي، لا عن المستقبل؛ ولا تسأل أبدًا «هل ستستخدمه؟» أو «هل ستدفع مقابله؟».
+أشِر إلى كل سؤال يستدعي مجاملة أو تخمينًا بشأن المستقبل.</textarea>
+    </div>
+    <div class="prompt-box">
+      <label for="t5">تدرّبوا مع عميل يؤدّي دوره الذكاء الاصطناعي &middot; <span class="sug">عدّلوه هنا</span></label>
+      <textarea class="prompt" id="t5">أدِّ دور [الدور، مثلًا: طالب في السنة الثانية يأكل في الحرم الجامعي ثلاث مرات في الأسبوع]. السياق: [وضعه]. اليوم يتعامل مع المشكلة عن طريق [ما يفعله الآن].
+أنت مشغول ومتشكّك قليلًا. أجب فقط عمّا أسأله، ولا تحاول أبدًا تخمين الحل الذي أفكّر فيه. إذا طرحت أسئلة موجِّهة أو أسئلة من نوع «هل كنت ستفعل...؟»، فأجب بلطف وبشكل مبهم، كما يفعل الناس الحقيقيون.
+عندما أكتب «تقييم»، اخرج من الدور وقيّم أسئلتي وفق قواعد اختبار الأم (The Mom Test).</textarea>
+    </div>
+    <div class="tip check"><strong>تمرين، لا دليل.</strong> العملاء الاصطناعيون إيجابيون أكثر من اللازم وسطحيون أكثر من اللازم. لا شيء مما يقولونه «معروف». استخدموهم للتدرّب على طرح الأسئلة - ثم تحدّثوا مع أشخاص حقيقيين.</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">5</span>الخيار ج &middot; فحص براءات الاختراع</h3>
+    <p>الخطوات الأربع موجودة في الجزء 2: <a href="#patents">انتقلوا إلى فحص براءات الاختراع</a>.</p>
+  </div>
+</section>
+
+<!-- ============ PART 4 ============ -->
+<section class="part p4" id="part4" aria-labelledby="h-part4">
+  <h2 id="h-part4">الجزء 4 &middot; اخرجوا إلى العالم</h2>
+  <p class="lead">عرض تقديمي، شريك، منشور - كل واحد منها يُبنى من جدولكم، فلا يقول إلا ما تعرفونه.</p>
+
+  <div class="step">
+    <h3><span class="n">1</span>عرض تقديمي للمستثمرين (<span lang="en" dir="ltr">pitch deck</span>)، يُبنى في المحادثة</h3>
+    <p>أي محادثة مجانية تستطيع بناء عرض تقديمي في ملف <span lang="en" dir="ltr">HTML</span> واحد: صفحة ويب تعمل كعرض شرائح. لا تحتاجون إلى قراءة أي سطر من الكود.</p>
+    <div class="prompt-box">
+      <label for="g1">الموجّه &middot; <span class="sug">اقتراح - عدّلوه هنا</span></label>
+      <textarea class="prompt" id="g1">إليك جدول شركتنا الناشئة: [الصقوا هنا].
+ابنِ عرضًا تقديميًا للمستثمرين من 8 شرائح في ملف HTML واحد:
+المشكلة / الحل / لماذا الآن / السوق / المنافسة / نموذج العمل / الفريق / ما نطلبه.
+القواعد:
+- البنود الموسومة «معروف» فقط تُعرض كحقائق. أما البنود الموسومة «افتراض» فتُكتب بصيغة «نعتقد أن...».
+- بلا أرقام أو شعارات أو اقتباسات مختلَقة.
+- نص كبير، وفكرة واحدة في كل شريحة.
+- مفاتيح الأسهم ومفتاح المسافة تنقل بين الشرائح.
+أعطني الملف كاملًا.</textarea>
+    </div>
+    <div class="tip info"><strong>أين ترونه:</strong> يعرضه <span lang="en" dir="ltr">Claude</span> كـ<span lang="en" dir="ltr">artifact</span> بجانب المحادثة، ويفتحه <span lang="en" dir="ltr">Gemini</span> في <span lang="en" dir="ltr">Canvas</span>، وفي <span lang="en" dir="ltr">ChatGPT</span> افتحوا معاينة الكود. الثلاثة تتيح لكم تنزيله. افتحوا الملف في المتصفح واضغطوا <span lang="en" dir="ltr">F11</span> لملء الشاشة.</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">2</span>إيجاد شركاء</h3>
+    <div class="prompt-box">
+      <label for="g2">الموجّه &middot; <span class="sug">اقتراح - عدّلوه هنا</span></label>
+      <textarea class="prompt" id="g2">فريقنا: [الأسماء والمهارات]. مشروعنا: [جملة واحدة]. أخطر افتراض لدينا: [الصقوا هنا].
+1. أولًا، اسأل كل واحد منا: مَن يعرف أصلًا من الأشخاص الذين يمكنهم المساعدة؟
+2. ما المهارات التي تنقصنا؟
+3. صِف الشريك المؤسِّس أو المستشار الذي نحتاجه.
+4. أين يجتمع أشخاص مثله، على الإنترنت وفي [مدينتنا]؟
+5. أعطني 3 عبارات بحث في LinkedIn.
+6. اكتب مسوّدة رسالة أولى بأقل من 80 كلمة: محددة، تتحدث عنهم، وفيها طلب واحد واضح.</textarea>
+    </div>
+    <div class="tip info"><strong>النسخة المجانية من <span lang="en" dir="ltr">LinkedIn</span></strong> تحدّ من عدد عمليات البحث والملاحظات الشخصية كل شهر - لذا اجعلوا الرسالة الأولى تستحق.</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">3</span>منشور يختبر فكرتكم</h3>
+    <div class="prompt-box">
+      <label for="g3">الموجّه &middot; <span class="sug">اقتراح - عدّلوه هنا</span></label>
+      <textarea class="prompt" id="g3">اكتب منشورًا على LinkedIn، بأقل من 150 كلمة، يختبر هذا الافتراض: [الصقوا هنا].
+اروِ المشكلة من خلال قصة حقيقية واحدة (بلا تفاصيل مختلَقة)، واسأل القرّاء سؤالًا واحدًا عن تجربتهم الشخصية، واختم برابط إلى قائمة الانتظار لدينا: [الرابط]. بلا مبالغات ولا كلمات تهويل.</textarea>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEXT WEEK ============ -->
+<section class="part pf" id="next" aria-labelledby="h-next">
+  <h2 id="h-next">أسبوعكم القادم</h2>
+
+  <div class="step">
+    <h3><span class="n">1</span>افتراض واحد، اختبار واحد، رقم واحد</h3>
+    <div class="prompt-box">
+      <label for="n1">انشروا هذا في مجموعة المحادثة &middot; <span class="sug">املؤوه</span></label>
+      <textarea class="prompt" id="n1">أخطر افتراض لدينا هو [...].
+سنختبره عن طريق [...].
+نكون على حق إذا قام ما لا يقل عن [X]% من [Y] بـ [Z]، بحلول [التاريخ].</textarea>
+    </div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">2</span>حافظوا على خصوصية فكرتكم</h3>
+    <p>قد تستخدم خدمات المحادثة المجانية محادثاتكم لتدريب نماذجها. أوقفوا ذلك قبل أن تلصقوا أي شيء حسّاس:</p>
+    <ul class="plain">
+      <li><b><span lang="en" dir="ltr">ChatGPT</span>:</b> في <span lang="en" dir="ltr">Settings &rarr; Data controls</span>، أوقفوا <span lang="en" dir="ltr">"Improve the model for everyone"</span>. أو استخدموا محادثة مؤقتة.</li>
+      <li><b><span lang="en" dir="ltr">Gemini</span>:</b> في <span lang="en" dir="ltr">Activity</span>، أوقفوا <span lang="en" dir="ltr">"Keep Activity"</span>. أو استخدموا محادثة مؤقتة.</li>
+      <li><b><span lang="en" dir="ltr">Claude</span>:</b> في <span lang="en" dir="ltr">Settings &rarr; Privacy</span>، أوقفوا تدريب النموذج. أو استخدموا محادثة خفيّة (<span lang="en" dir="ltr">incognito</span>).</li>
+      <li><b><span lang="en" dir="ltr">Perplexity</span>:</b> في <span lang="en" dir="ltr">Settings</span>، أوقفوا <span lang="en" dir="ltr">"AI data retention"</span>.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">3</span>أدوات اليوم</h3>
+    <div class="links">
+      <a href="https://gemini.google.com/" target="_blank" rel="noopener"><b lang="en">Gemini</b><span>البحث المعمّق، <span lang="en" dir="ltr">Canvas</span></span></a>
+      <a href="https://notebooklm.google/" target="_blank" rel="noopener"><b lang="en">Gemini Notebook</b><span>مصادركم أنتم</span></a>
+      <a href="https://chatgpt.com/" target="_blank" rel="noopener"><b lang="en">ChatGPT</b><span>يعمل من دون تسجيل الدخول</span></a>
+      <a href="https://claude.ai/" target="_blank" rel="noopener"><b lang="en">Claude</b><span>عروض تقديمية وصفحات (<span lang="en" dir="ltr">artifacts</span>)</span></a>
+      <a href="https://www.perplexity.ai/" target="_blank" rel="noopener"><b lang="en">Perplexity</b><span>إجابات مع مصادر</span></a>
+      <a href="https://search.projectpq.ai/" target="_blank" rel="noopener"><b lang="en">PQAI</b><span>بحث في براءات الاختراع</span></a>
+    </div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">4</span>من أين جاءت أطر العمل</h3>
+    <ul class="plain">
+      <li>المعايير الأربعة (<span lang="en" dir="ltr">4 U's</span>) - <span lang="en" dir="ltr">Michael Skok</span> &middot; لماذا الخمسة (<span lang="en" dir="ltr">5 Whys</span>) - نظام الإنتاج في <span lang="en" dir="ltr">Toyota</span></li>
+      <li>سوق رأس الجسر والشخصية النموذجية - <span lang="en" dir="ltr">Bill Aulet</span>، «<span lang="en" dir="ltr">Disciplined Entrepreneurship</span>»</li>
+      <li>مخطط عرض القيمة - <span lang="en" dir="ltr">Strategyzer.com</span></li>
+      <li>شجرة الفرص والحلول - <span lang="en" dir="ltr">Teresa Torres</span>، <span lang="en" dir="ltr">Product Talk</span></li>
+      <li>المخطط الرشيق - <span lang="en" dir="ltr">Ash Maurya</span></li>
+      <li>التحليل الاستباقي للفشل - <span lang="en" dir="ltr">Gary Klein</span></li>
+      <li>خريطة الافتراضات وبطاقات الاختبار - <span lang="en" dir="ltr">David J. Bland</span> و<span lang="en" dir="ltr">Alexander Osterwalder</span>، «<span lang="en" dir="ltr">Testing Business Ideas</span>»</li>
+      <li>«ما لا يقل عن <span lang="en" dir="ltr">X%</span> من <span lang="en" dir="ltr">Y</span> سيفعلون <span lang="en" dir="ltr">Z</span>» والأبواب الوهمية - <span lang="en" dir="ltr">Alberto Savoia</span>، «<span lang="en" dir="ltr">The Right It</span>»</li>
+      <li>اختبار الأم - <span lang="en" dir="ltr">Rob Fitzpatrick</span></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>توم هغلعادي &middot; الذكاء الاصطناعي للمؤسسات التعليمية &middot; <a href="https://www.tomhagiladi.com/" target="_blank" rel="noopener" lang="en" dir="ltr">tomhagiladi.com</a></p>
+  <div class="accessibility-statement" id="a11y">
+    <h2>بيان إمكانية الوصول</h2>
+    <p>يستوفي هذا الموقع متطلبات أنظمة المساواة في الحقوق للأشخاص ذوي الإعاقة (تعديلات إمكانية الوصول إلى الخدمة)، 2013، والمعيار الإسرائيلي <span lang="en" dir="ltr">SI 5568</span> المستند إلى إرشادات <span lang="en" dir="ltr">WCAG 2.0</span> بالمستوى <span lang="en" dir="ltr">AA</span>.</p>
+    <p>إذا واجهتم مشكلة في إمكانية الوصول في الموقع، تواصلوا معنا وسيسعدنا أن نساعدكم:</p>
+    <p><strong>منسّق إمكانية الوصول:</strong> توم هغلعادي<br>
+    <strong>البريد الإلكتروني:</strong> <a href="mailto:tomhagiladi@gmail.com" lang="en" dir="ltr">tomhagiladi@gmail.com</a></p>
+  </div>
+</footer>
+
+<script src="assets/practice.js"></script>
+</body>
+</html>

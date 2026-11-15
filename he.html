@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מדריך תרגול - בינה מלאכותית כשותפה מייסדת</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/practice.css">
+</head>
+<body>
+<a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+
+<nav class="langbar" aria-label="שפה">
+  <a href="index.html" lang="en" hreflang="en">English</a>
+  <a href="he.html" lang="he" hreflang="he" dir="rtl" aria-current="page">עברית</a>
+  <a href="ar.html" lang="ar" hreflang="ar" dir="rtl">العربية</a>
+</nav>
+
+<header class="top">
+  <div>
+    <h1>מדריך תרגול &middot; בינה מלאכותית כשותפה מייסדת</h1>
+    <p>אוניברסיטת חיפה &middot; <span lang="en" dir="ltr">Haifa Innovation Labs (HIL)</span> &middot; תכנית הרעיונאות עם <span lang="en" dir="ltr">50:50 Startups</span> &middot; 16.11.2026</p>
+  </div>
+  <img src="assets/logo.png" alt="תום הגלעדי - לוגו">
+</header>
+
+<nav class="parts" aria-label="חלקי התרגול">
+  <a class="n1" href="#part1">1. לחשוב</a>
+  <a class="n2" href="#part2">2. לחקור</a>
+  <a class="n3" href="#part3">3. לבדוק</a>
+  <a class="n4" href="#part4">4. להציג</a>
+  <a class="nf" href="#next">השבוע הבא שלכם</a>
+</nav>
+
+<main id="main-content">
+
+<div class="intro">
+  <h2>איך משתמשים בדף הזה</h2>
+  <ol>
+    <li><b>ערכו את הפרומפט כאן, בתוך התיבה.</b> כל פרומפט הוא הצעה. מלאו את מה שבסוגריים המרובעים, והתאימו אותו לעצמכם.</li>
+    <li><b>לחצו על "העתקה".</b> הנוסח הערוך שלכם יועתק.</li>
+    <li><b>הדביקו אותו בכל צ'אט חינמי:</b> <span lang="en" dir="ltr">Gemini</span>, <span lang="en" dir="ltr">ChatGPT</span>, <span lang="en" dir="ltr">Claude</span> או כל צ'אט אחר.</li>
+  </ol>
+  <p>ענו בעברית, בערבית או באנגלית - מה שהכי נוח לכם. רוצים שהצ'אט יענה בשפה אחרת? הוסיפו "ענה בערבית" או "ענה באנגלית".</p>
+  <p class="rule"><strong class="red">כלל אחד:</strong> שום דבר שהבינה המלאכותית אומרת אינו ראיה. כל תשובה מקבלת תגית:</p>
+  <div class="tags">
+    <span class="tag k">ידוע</span> ראיה מאנשים אמיתיים: מי, מתי, כמה
+  </div>
+  <div class="tags">
+    <span class="tag a">הנחה</span> האמונה שלנו, מחקר שולחני, או כל מה שהבינה המלאכותית הציעה
+  </div>
+  <div class="tags">
+    <span class="tag u">לא ידוע</span> עדיין אין תשובה - וזו תשובה טובה
+  </div>
+</div>
+
+<!-- ============ PART 1 ============ -->
+<section class="part" id="part1" aria-labelledby="h-part1">
+  <h2 id="h-part1">חלק 1 &middot; לחשוב עם בינה מלאכותית: תנו לצ'אט לראיין אתכם</h2>
+  <p class="lead">שתי הדבקות: קודם הפרומפט הראשי, ואז מתחתיו כלי חשיבה אחד. מקלידים במחשב אחד, וכל הצוות עונה יחד.</p>
+
+  <div class="step">
+    <h3><span class="n">1</span>הפרומפט הראשי</h3>
+    <p>הוא הופך צ'אט חינמי לשותף מייסד ספקן: הוא שואל שאלה אחת בכל פעם, מתייג כל תשובה, ולא ממלא שום דבר במקומכם.</p>
+    <div class="prompt-box">
+      <label for="m1">הפרומפט הראשי &middot; <span class="sug">הצעה - ערכו כאן</span></label>
+      <textarea class="prompt" id="m1">פעל כשותף המייסד הספקן שלי. ראיין אותי כדי למלא את כלי החשיבה שמודבק למטה. חלץ ממני את מה שכבר ידוע לי, וחשוב איתי על מה שעוד לא ידוע לי. לעולם אל תמלא אותו במקומי.
+
+כללים:
+1. התקדם סעיף אחד בכל פעם. שאל שאלה אחת בלבד, וחכה לתשובה שלי.
+2. תייג כל תשובה: ידוע (ראיה שאפשר להראות: התנהגות עבר של אדם אמיתי, נתונים, תשלום), הנחה (אמונה שלי, עוד בלי ראיה) או לא ידוע. הסבר למה בשורה אחת.
+3. לפני שאתה שופט טענה שלי, נסח אותה מחדש כשאלה ("האם נכון ש...?").
+4. אם תשובה מעורפלת, היפותטית או כללית ("אנשים יאהבו את זה", "כולם"), אל תסתפק בה: בקש אדם מסוים, דוגמה אמיתית מהעבר או מספר. אם אחרי שני ניסיונות היא עדיין מעורפלת, תייג אותה כהנחה והמשך הלאה.
+5. שפוט את הרעיון כאילו הוא של אדם זר. בלי מחמאות. הצבע על סתירות בין הסעיפים.
+6. כל רעיון שבא ממך, סמן: "הצעה של הבינה המלאכותית - לא נבדקה".
+7. כל תגובה שלך - פחות מ-80 מילים. ייתכן שאענה בעברית, בערבית או באנגלית; ענה בעברית.
+
+כשכל הסעיפים מוכנים, הצג:
+א. כלי החשיבה המלא כטבלה (סעיף, התשובה שלי, תגית).
+ב. 3 ההנחות המסוכנות ביותר (פריטים עם התגית הנחה או לא ידוע, שאם הם שגויים - הרעיון נופל), מדורגות, עם הסבר למה.
+ג. לכל אחת מהן, הבדיקה הזולה ביותר שאוכל לעשות השבוע (רצוי שיחה על מה שמישהו עשה בעבר, לא הצגה של הרעיון), והתוצאה שתגרום לי לשנות את דעתי.
+
+התחל בשאלה: למי יש את הבעיה, ומה היא?
+
+כלי החשיבה:
+[הדביקו כאן כלי חשיבה אחד מהרשימה שלמטה]</textarea>
+    </div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">2</span>בחרו כלי חשיבה אחד שמתאים לשלב שלכם</h3>
+    <p>פתחו את הכלי שמתאים לשאלה שהצוות שלכם תקוע בה, העתיקו אותו והדביקו אותו מתחת ל"כלי החשיבה:".</p>
+
+    <details class="fw">
+      <summary>האם שווה לפתור את הבעיה? &middot; <bdi lang="en" dir="ltr">4U</bdi> ו-5 למה <span>(<span lang="en" dir="ltr">4 U's + 5 Whys - Michael Skok; Toyota</span>)</span></summary>
+      <div class="inner"><div class="prompt-box"><label for="f1">כלי חשיבה</label>
+      <textarea class="prompt" id="f1">בדיקת הבעיה (4U של Michael Skok ו-5 למה). סעיפים:
+1. הבעיה במשפט אחד - למי יש אותה, ומתי.
+2. בלתי נסבלת (Unworkable) - מה נשבר, או כמה זה עולה להם, כשזה קורה?
+3. בלתי נמנעת (Unavoidable) - האם היא נכפית עליהם (חוקים, שלב בחיים, שגרה)?
+4. דחופה (Urgent) - האם היא בין 3 הדברים הכי חשובים להם עכשיו?
+5. בלי מענה טוב (Underserved) - במה הם משתמשים היום, ולמה זה לא מספיק?
+6. 5 למה - שאל "למה זה קורה?" שוב ושוב, עד שנגיע לשורש הבעיה.
+7. משפט המשימה (Job statement) - "כאשר [מצב], הם רוצים [מה שמניע אותם], כדי [התוצאה שהם רוצים]."</textarea></div></div>
+    </details>
+
+    <details class="fw">
+      <summary>מי בדיוק? &middot; שוק ראש גשר ופרסונה <span>(<span lang="en" dir="ltr">Beachhead market + persona - Bill Aulet, Disciplined Entrepreneurship, MIT</span>)</span></summary>
+      <div class="inner"><div class="prompt-box"><label for="f2">כלי חשיבה</label>
+      <textarea class="prompt" id="f2">מי בדיוק? (Disciplined Entrepreneurship של Bill Aulet). סעיפים:
+1. פלחי שוק - רשום 5-10 קבוצות לקוחות אפשריות.
+2. שוק ראש גשר (Beachhead) - בחר קבוצה אחת בלבד: יש להם כסף, אנחנו יכולים להגיע אליהם, הצורך שלהם חזק, יש מעט מתחרים, וההצלחה אצלם תעזור לנו לכבוש את הקבוצה הבאה.
+3. פרופיל משתמש הקצה - מי הם, מה ההרגלים שלהם, איפה הם מתקבצים.
+4. פרסונה - אדם אמיתי אחד שמתאים, שאנחנו מכירים בשמו. איך נראה אצלו יום רגיל?
+5. עשרת הלקוחות הבאים - שמות של 10 אנשים או ארגונים אמיתיים שמתאימים.
+6. בדיקת גודל - בערך כמה אנשים כמוהם יש? תייג כל מספר כהנחה, אלא אם יש לו מקור.</textarea></div></div>
+    </details>
+
+    <details class="fw">
+      <summary>מה הם באמת צריכים? &middot; קנבס הצעת הערך <span>(<span lang="en" dir="ltr">Value Proposition Canvas - Strategyzer.com</span>)</span></summary>
+      <div class="inner"><div class="prompt-box"><label for="f3">כלי חשיבה</label>
+      <textarea class="prompt" id="f3">קנבס הצעת הערך (Value Proposition Canvas, Strategyzer.com). סעיפים:
+פרופיל הלקוח (פלח אחד בלבד):
+1. משימות (Jobs) - מה הם מנסים להשיג (מעשי, חברתי, רגשי).
+2. כאבים (Pains) - מה מציק להם, סיכונים, מכשולים. דרג את 3 העיקריים.
+3. רווחים (Gains) - התוצאות שהם רוצים. דרג את 3 העיקריים.
+מפת הערך (רק אחרי ש-3 הכאבים העיקריים דורגו):
+4. מוצרים ושירותים.
+5. משככי כאב (Pain relievers) - איזה כאב עיקרי כל אחד מהם מסיר?
+6. יוצרי רווח (Gain creators) - איזה רווח עיקרי כל אחד מהם יוצר?
+7. התאמה - אילו כאבים ורווחים עיקריים לא מקבלים מענה?</textarea></div></div>
+    </details>
+
+    <details class="fw">
+      <summary>איזה פתרון? &middot; עץ הזדמנויות ופתרונות <span>(<span lang="en" dir="ltr">Opportunity Solution Tree - Teresa Torres</span>)</span></summary>
+      <div class="inner"><div class="prompt-box"><label for="f4">כלי חשיבה</label>
+      <textarea class="prompt" id="f4">עץ הזדמנויות ופתרונות (Opportunity Solution Tree, Teresa Torres). סעיפים:
+1. התוצאה הרצויה - דבר מדיד אחד שאנחנו רוצים להשיג (למשל: "סטודנטים שמזמינים בפעם השנייה").
+2. הזדמנויות - צרכים, כאבים ומשאלות של לקוחות, מתוך סיפורים אמיתיים. בדוק כל אחת: האם יש יותר מדרך אחת לפתור אותה? אם לא, זה פתרון בתחפושת.
+3. הזדמנות היעד - בחר אחת.
+4. פתרונות - לפחות 3 פתרונות שונים לה, לפני שבוחרים.
+5. בדיקת הנחות - לכל פתרון: מה חייב להיות נכון, ואיך אפשר לבדוק את זה מהר?</textarea></div></div>
+    </details>
+
+    <details class="fw">
+      <summary>איך זה יכניס כסף? &middot; קנבס רזה <span>(<span lang="en" dir="ltr">Lean Canvas - Ash Maurya</span>)</span></summary>
+      <div class="inner"><div class="prompt-box"><label for="f5">כלי חשיבה</label>
+      <textarea class="prompt" id="f5">קנבס רזה (Lean Canvas, Ash Maurya). מלא לפי הסדר הזה:
+1. בעיה - 3 הבעיות העיקריות, והחלופות הקיימות (איך פותרים את זה היום).
+2. פלחי לקוחות - ובתוכם המאמצים המוקדמים (מי שמרגישים את הבעיה הכי חזק).
+3. הצעת ערך ייחודית - משפט אחד ברור, ורעיון קצר בסגנון "X עבור Y".
+4. פתרון - התשובה הפשוטה ביותר לכל בעיה עיקרית.
+5. ערוצים - איך מגיעים ללקוחות.
+6. מקורות הכנסה - מי משלם, כמה, ובאיזו תדירות.
+7. מבנה עלויות - העלויות העיקריות.
+8. מדדים מרכזיים - המספרים הבודדים שמראים שזה עובד.
+9. יתרון בלתי הוגן - משהו שאי אפשר להעתיק או לקנות בקלות.</textarea></div></div>
+    </details>
+
+    <details class="fw">
+      <summary>מה יכול להרוג אותנו? &middot; פרה-מורטם <span>(<span lang="en" dir="ltr">Pre-mortem - Gary Klein</span>)</span></summary>
+      <div class="inner"><div class="prompt-box"><label for="f6">כלי חשיבה</label>
+      <textarea class="prompt" id="f6">פרה-מורטם (Pre-mortem, Gary Klein). סעיפים:
+1. עברה שנה מהיום. הסטארט-אפ נכשל.
+2. שאל אותי על כל סיבה לכישלון, אחת בכל פעם. אל תציע סיבות משלך עד שאסיים לתת את כל הסיבות שלי.
+3. אחר כך הוסף את הסיבות שפספסתי, עם התווית "הצעה של הבינה המלאכותית".
+4. הפוך את 3 הסיבות העיקריות להנחות: "אנחנו מאמינים ש...".
+5. לכל אחת, הבדיקה הזולה ביותר שנוכל לעשות השבוע.</textarea></div></div>
+    </details>
+
+    <div class="tip info"><strong>שמרו את הטבלה.</strong> כשהצ'אט נותן לכם את הטבלה הסופית, העתיקו אותה למסמך או לפתק. תצטרכו אותה בחלקים 3 ו-4. אם נגמרו ההודעות בצ'אט החינמי, הדביקו את הטבלה בצ'אט חדש והמשיכו.</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">3</span>שלושה הרגלים שהופכים את הצ'אט לכן יותר</h3>
+    <ul class="plain">
+      <li><b>שאלו, אל תקבעו:</b> "האם נכון ש...?" במקום "סטודנטים צריכים...".</li>
+      <li><b>גוף שלישי:</b> "צוות סטודנטים מציע..." במקום "הרעיון שלי".</li>
+      <li><b>התעקשו:</b> ענו לו "אתה בטוח?". אם הביקורת שלו קורסת, היא הייתה חלשה.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PART 2 ============ -->
+<section class="part p2" id="part2" aria-labelledby="h-part2">
+  <h2 id="h-part2">חלק 2 &middot; מחקר החוצה</h2>
+  <p class="lead">מודל שפה מתאים לרעיונות ולשאלות. לעובדות, למספרים ולמתחרים - השתמשו בכלי שמראה את המקורות שלו, ופתחו אותם.</p>
+
+  <div class="step">
+    <h3><span class="n">1</span>מחקר עמוק (<span lang="en" dir="ltr">Deep Research</span>): דוח שוק עם מקורות</h3>
+    <p>סוכן קורא עשרות מקורות במשך 5-10 דקות, וכותב דוח עם הפניות למקורות. בחשבון חינמי נסו את <b><span lang="en" dir="ltr">Gemini</span></b>: בחרו מחקר עמוק תחת הכלים (<span lang="en" dir="ltr">Tools</span>). דוח אחד מנצל חלק גדול מהמכסה החינמית, ו-<span lang="en" dir="ltr">Google</span> מציינת שבשעות עומס הכלי עלול לא להיות זמין - אז הריצו דוח <b>אחד</b>, ואת כל השאר עשו בצ'אט הרגיל. ב-<span lang="en" dir="ltr">ChatGPT</span> יש מספר מוגבל של הרצות חינמיות, וב-<span lang="en" dir="ltr">Perplexity</span> - אחת בחודש.</p>
+    <div class="prompt-box">
+      <label for="r1">פרומפט &middot; <span class="sug">הצעה - ערכו כאן</span></label>
+      <textarea class="prompt" id="r1">חקור את השוק של [תיאור של המיזם במשפט אחד], באזור [ישראל / המזרח התיכון / העיר שלנו].
+הדוח צריך לכלול:
+1. למי יש את הבעיה הזו, וכמה אנשים כאלה יש (עם מקורות).
+2. איך אנשים פותרים אותה היום.
+3. 5-10 המתחרים או החלופות הקרובים ביותר: שם, קישור, מחיר, במה הם טובים, ומה חסר.
+4. מגמות מהשנתיים האחרונות.
+5. מה עלול להקשות (רגולציה, הרגלים, שחקנים גדולים).
+ציין מקור לכל מספר. אם לא מצאת מקור, אמור זאת - אל תעריך בשקט.</textarea>
+    </div>
+    <div class="tip check"><strong>לפני שאתם סומכים עליו:</strong> פתחו 3 מהמקורות שלו. כל מספר בלי מקור הוא הנחה. ואז שאלו אותו: "מה לא מצאת?"</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">2</span><span lang="en" dir="ltr">Gemini Notebook</span>: לחשוב מתוך החומרים שלכם</h3>
+    <p><span lang="en" dir="ltr">Gemini Notebook</span> (לשעבר <span lang="en" dir="ltr">NotebookLM</span>) עונה רק מתוך המקורות <b>שלכם</b>, עם הפניות. פתחו מחברת אחת לשוק שלכם והעלו אליה: סיכומי ראיונות, אתרים של מתחרים, מאמרים, סרטון <span lang="en" dir="ltr">YouTube</span> ודוח המחקר העמוק שלכם.</p>
+    <div class="links"><a href="https://notebooklm.google/" target="_blank" rel="noopener"><b>Gemini Notebook</b><span lang="en" dir="ltr">notebooklm.google</span></a></div>
+    <div class="prompt-box">
+      <label for="r2">שאלות לשאול על כל המקורות שלכם &middot; <span class="sug">ערכו כאן</span></label>
+      <textarea class="prompt" id="r2">1. מהן 3 הבעיות שאנשים מזכירים הכי הרבה? צטט אותן.
+2. איפה המקורות שלי לא מסכימים זה עם זה?
+3. מה המתחרים מבטיחים, ועל מה המשתמשים שלהם מתלוננים?
+4. אילו מההנחות שלי המקורות האלה תומכים בהן, ואילו הם סותרים? [הדביקו כאן את הטבלה שלכם]
+5. מה חסר - מה כדאי לי לבדוק בשלב הבא?</textarea>
+    </div>
+    <div class="tip info"><strong>נסו גם:</strong> מפת חשיבה של השוק שלכם, או סקירה קולית להאזנה באוטובוס - אפשר ליצור אותה גם בעברית או בערבית.</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">3</span>בדיקות מהירות עם <span lang="en" dir="ltr">Perplexity</span></h3>
+    <div class="prompt-box">
+      <label for="r3">פרומפט &middot; <span class="sug">הצעה - ערכו כאן</span></label>
+      <textarea class="prompt" id="r3">מי המתחרים העיקריים של [מה שאנחנו עושים] באזור [שם האזור]? הכן טבלה: שם, קישור, מחיר, לקוח היעד, והחולשה העיקרית שמשתמשים מתלוננים עליה בביקורות. מקור לכל שורה.</textarea>
+    </div>
+    <div class="prompt-box">
+      <label for="r4">השאלה שכל סטארט-אפ של בינה מלאכותית חייב לשאול &middot; <span class="sug">ערכו כאן</span></label>
+      <textarea class="prompt" id="r4">צוות סטודנטים מציע [תיאור במשפט אחד]. מה יקרה אם ChatGPT, Gemini או Google יוסיפו את זה כפיצ'ר בשנה הבאה? איזה חלק מזה עדיין יהיה קשה להעתיק?</textarea>
+    </div>
+  </div>
+
+  <div class="step" id="patents">
+    <h3><span class="n">4</span>פטנטים: האם מישהו כבר עשה את זה?</h3>
+    <p>בדיקה ראשונית, 15 דקות. <b>תארו את הרעיון בלי החלק הסודי</b>, ולפני כן כבו בצ'אט את האימון על השיחות שלכם (ראו "השבוע הבא שלכם" למטה).</p>
+    <p>כל כלי פטנטים מחפש בדרך משלו. במקום לנחש את המילים הנכונות, <b>תנו לצ'אט לראיין אתכם על הרעיון, ללמוד איך כל כלי מחפש הכי טוב, ולכתוב בשבילכם את השאילתה</b> - אחת ל-<span lang="en" dir="ltr">PQAI</span>, אחת ל-<span lang="en" dir="ltr">Google Patents</span> ואחת ל-<span lang="en" dir="ltr">Perplexity Patents</span>.</p>
+    <div class="prompt-box">
+      <label for="r5">שלב 1 - תנו לצ'אט לכתוב את שאילתות החיפוש &middot; <span class="sug">ערכו כאן</span></label>
+      <textarea class="prompt" id="r5">אני רוצה לבדוק אם הרעיון שלי כבר נרשם כפטנט. עזור לי לכתוב את שאילתות החיפוש הטובות ביותר.
+
+1. קודם ראיין אותי. שאל אותי שאלה אחת בכל פעם על הרעיון - הבעיה, החלקים העיקריים, איך הם עובדים יחד, מה חדש בו - עד שתבין אותו מספיק טוב כדי לחפש. הזכר לי לא לשתף את החלק הסודי.
+2. אחר כך למד איך כל אחד מהכלים האלה מחפש הכי טוב. אם אתה יכול לגלוש באינטרנט, חפש קודם את טיפי החיפוש שלהם; אם לא, אמור זאת והשתמש במה שאתה יודע:
+   - PQAI (search.projectpq.ai) - חיפוש מבוסס בינה מלאכותית שקורא תיאור טכני בשפה פשוטה, כמו תקציר של פטנט.
+   - Google Patents (patents.google.com) - מילות מפתח ומילים נרדפות, OR בתוך סוגריים, AND בין מושגים, מירכאות לביטוי מדויק, סיווגי CPC.
+   - Perplexity Patents - שאלה במילים פשוטות.
+3. כתוב שאילתה אחת לכל כלי, בצורה שמתאימה לאופן שבו הוא עובד הכי טוב. כתוב את השאילתות עצמן באנגלית. הוסף את 3 סיווגי ה-CPC הסבירים ביותר, עם הגדרה בשורה אחת לכל אחד.
+4. הסבר כל שאילתה בשורה אחת, כדי שאוכל לשנות אותה.
+אל תצטט פטנטים מסוימים או מספרי פטנטים.
+
+הרעיון שלי בכמה מילים: [משפט או שניים - בלי פרטים סודיים]</textarea>
+    </div>
+    <p><b>שלב 2 - חפשו.</b> הדביקו כל שאילתה בכלי שלה. ב-<span lang="en" dir="ltr">Google Patents</span> סמנו את <span lang="en" dir="ltr">"Include non-patent literature"</span>. התוצאות נראות לא קשורות? הדביקו בצ'אט את מה שקיבלתם, ובקשו ממנו לחדד את השאילתה.</p>
+    <div class="links">
+      <a href="https://search.projectpq.ai/" target="_blank" rel="noopener"><b>PQAI</b><span>חיפוש חינמי מבוסס בינה מלאכותית</span></a>
+      <a href="https://patents.google.com/" target="_blank" rel="noopener"><b>Google Patents</b><span>חינמי, מדינות רבות, עם תרגום</span></a>
+      <a href="https://www.perplexity.ai/patents" target="_blank" rel="noopener"><b>Perplexity Patents</b><span>שאלות בשפה פשוטה</span></a>
+      <a href="https://patentscope.wipo.int/" target="_blank" rel="noopener"><b>WIPO PATENTSCOPE</b><span>יש גם ממשק בערבית</span></a>
+      <a href="https://worldwide.espacenet.com/" target="_blank" rel="noopener"><b>Espacenet</b><span>משרד הפטנטים האירופי</span></a>
+      <a href="https://israelpatents.justice.gov.il/search/en/home" target="_blank" rel="noopener"><b>רשות הפטנטים</b><span>בקשות שהוגשו בישראל</span></a>
+    </div>
+    <p><b>שלב 3 - קראו את 3 הקרובים ביותר.</b> לכל אחד: התקציר, התביעה הראשונה, שרטוט אחד, המספר, התאריך והמעמד המשפטי. אחר כך לחצו על <span lang="en" dir="ltr">"Similar"</span> בפטנט הקרוב ביותר.</p>
+    <div class="prompt-box">
+      <label for="r6">שלב 4 - השוואה &middot; <span class="sug">ערכו כאן</span></label>
+      <textarea class="prompt" id="r6">הנה התקצירים והתביעות הראשונות של 3 הפטנטים הקרובים ביותר שמצאתי: [הדביקו כאן]. הכן טבלה: הרכיבים של הרעיון שלי מול כל פטנט. אחר כך אמור לי מה באמת שונה ברעיון שלי. היה קפדן.</textarea>
+    </div>
+    <div class="tip check"><strong>הכירו את המגבלות.</strong> זה לא ייעוץ משפטי, ואם לא מצאתם כלום, זה לא אומר שהרעיון חדש. צ'אטים ממציאים מספרי פטנטים - פתחו כל מספר ב-<span lang="en" dir="ltr">Google Patents</span>. הגישו בקשה לפני שאתם מפרסמים: באירופה ובישראל אין תקופת חסד כללית. לעזרה חינמית של מומחים, חפשו מרכז של <span lang="en" dir="ltr">WIPO</span> לתמיכה בטכנולוגיה ובחדשנות (<span lang="en" dir="ltr">TISC</span>) - למשל באוניברסיטת א-נג'אח בשכם.</div>
+  </div>
+</section>
+
+<!-- ============ PART 3 ============ -->
+<section class="part p3" id="part3" aria-labelledby="h-part3">
+  <h2 id="h-part3">חלק 3 &middot; לבדוק לפני שבונים</h2>
+  <p class="lead">בניית מוצר מינימלי (<span lang="en" dir="ltr">MVP</span>) לוקחת שבועות. את ההנחה המסוכנת ביותר שלכם אפשר לבדוק כבר השבוע - בלי קוד.</p>
+
+  <div class="step">
+    <h3><span class="n">1</span>מפת ההנחות: מה בודקים קודם</h3>
+    <div class="prompt-box">
+      <label for="t1">פרומפט &middot; <span class="sug">הצעה - ערכו כאן</span></label>
+      <textarea class="prompt" id="t1">הנה הטבלה שלנו מהראיון: [הדביקו כאן].
+1. נסח מחדש כל פריט עם התגית הנחה או לא ידוע בצורה "אנחנו מאמינים ש...".
+2. תייג כל אחד: ביקוש (Desirability - האם הם רוצים את זה?), ישימות (Feasibility - האם נוכל לבנות ולספק את זה?) או כדאיות (Viability - האם הכסף מסתדר?).
+3. תן לכל אחד ציון: חשיבות 1-5 ("אם זה לא נכון, ניכשל") וראיות 1-5.
+4. מיין אותם: קודם החשובים שיש להם מעט ראיות. הפריט שבראש הרשימה הוא מה שנבדוק קודם.</textarea>
+    </div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">2</span>כרטיס הניסוי</h3>
+    <p>כתבו את המספר לפני שאתם מריצים את הניסוי - אחרת כל תוצאה תיראה כמו הצלחה.</p>
+    <div class="prompt-box">
+      <label for="t2">פרומפט &middot; <span class="sug">הצעה - ערכו כאן</span></label>
+      <textarea class="prompt" id="t2">ההנחה המסוכנת ביותר שלנו: [הדביקו כאן].
+עזור לי לכתוב כרטיס ניסוי:
+אנחנו מאמינים ש...
+כדי לבדוק את זה, נעשה...
+נמדוד...
+צדקנו אם לפחות X אחוז מתוך Y יעשו Z, תוך [זמן].
+הניסוי חייב לקחת פחות משבוע, לא לעלות כסף ולא לדרוש קוד. הצע 3 אפשרויות, ואז עזור לי לבחור אחת.</textarea>
+    </div>
+    <div class="tip info"><strong>דוגמה:</strong> אנחנו מאמינים שסטודנטים יקנו בערב מנות שנשארו בקפיטריה, בחצי מחיר. נתלה בקפיטריה מודעה עם קישור להרשמה. צדקנו אם לפחות 15% מהסטודנטים שסורקים אותה יצטרפו לרשימת ההמתנה תוך 3 ימים.</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">3</span>אפשרות א &middot; דף נחיתה ("דלת מזויפת")</h3>
+    <p>דף של מוצר שעוד לא קיים, עם כפתור "הצטרפו לרשימת ההמתנה". קודם הכינו <span lang="en" dir="ltr">Google Form</span> קצר להרשמות, ואז בנו את הדף.</p>
+    <div class="prompt-box">
+      <label for="t3">פרומפט &middot; <span class="sug">הצעה - ערכו כאן</span></label>
+      <textarea class="prompt" id="t3">בנה דף נחיתה של עמוד אחד, כקובץ HTML יחיד, עבור [המיזם שלנו].
+- כותרת שפונה אל [המאמצים המוקדמים שלנו].
+- הבעיה במילים שלהם.
+- 3 יתרונות.
+- כפתור "הצטרפו לרשימת ההמתנה" שפותח את [הקישור ל-Google Form שלנו].
+- כתוב בבירור שהמוצר יגיע בקרוב.
+בלי מספרים מומצאים, בלי המלצות מזויפות ובלי לוגואים מזויפים. הדף חייב להיראות טוב בטלפון.</textarea>
+    </div>
+    <div class="tip info"><strong>איך משתפים:</strong> ב-<span lang="en" dir="ltr">Gemini</span>, בנו אותו כאפליקציה אינטראקטיבית וייצאו אותו ל-<span lang="en" dir="ltr">Google Sites</span> (הוא נוצר כטיוטה פרטית - פרסמו אותו). ב-<span lang="en" dir="ltr">Claude</span>, פרסמו את ה-<span lang="en" dir="ltr">artifact</span> והעתיקו את הקישור. או הורידו את הקובץ ושלחו אותו.</div>
+    <div class="tip check"><strong>היו כנים:</strong> בדף כתוב "בקרוב". לעולם אל תיקחו כסף על משהו שלא קיים.</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">4</span>אפשרות ב &middot; תסריט ראיון, וחזרה מול לקוח מדומה</h3>
+    <div class="prompt-box">
+      <label for="t4">נסחו מחדש את השאלות שלכם לפי מבחן אמא (<span lang="en" dir="ltr">The Mom Test</span>) &middot; <span class="sug">ערכו כאן</span></label>
+      <textarea class="prompt" id="t4">הנה השאלות שלי לראיון לקוחות: [הדביקו כאן].
+נסח אותן מחדש לפי הכללים של מבחן אמא (The Mom Test): לדבר על החיים שלהם, לא על הרעיון שלי; לשאול על אירועים מסוימים מהעבר, לא על העתיד; אף פעם לא "היית משתמש בזה?" או "היית משלם על זה?".
+סמן כל שאלה שמזמינה מחמאה או ניחוש לגבי העתיד.</textarea>
+    </div>
+    <div class="prompt-box">
+      <label for="t5">חזרה מול לקוח מדומה &middot; <span class="sug">ערכו כאן</span></label>
+      <textarea class="prompt" id="t5">שחק את [תפקיד, למשל: סטודנט בשנה ב' שאוכל בקמפוס שלוש פעמים בשבוע]. הקשר: [המצב של הדמות]. היום הדמות מתמודדת עם הבעיה כך: [מה היא עושה היום].
+אתה עסוק וקצת ספקן. ענה רק על מה שאשאל, ואף פעם אל תנחש את הפתרון שלי. אם אשאל שאלות מכוונות או שאלות של "האם היית...", ענה בנימוס ובאופן מעורפל, כמו שאנשים אמיתיים עונים.
+כשאקליד "תחקיר", צא מהתפקיד ודרג את השאלות שלי לפי הכללים של מבחן אמא.</textarea>
+    </div>
+    <div class="tip check"><strong>תרגול, לא ראיה.</strong> לקוחות מדומים חיוביים מדי ושטחיים מדי. שום דבר שהם אומרים לא מקבל את התגית ידוע. השתמשו בזה כדי להתאמן בשאילת שאלות - ואז דברו עם אנשים אמיתיים.</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">5</span>אפשרות ג &middot; בדיקת פטנטים</h3>
+    <p>ארבעת השלבים נמצאים בחלק 2: <a href="#patents">לבדיקת הפטנטים</a>.</p>
+  </div>
+</section>
+
+<!-- ============ PART 4 ============ -->
+<section class="part p4" id="part4" aria-labelledby="h-part4">
+  <h2 id="h-part4">חלק 4 &middot; לצאת לעולם</h2>
+  <p class="lead">מצגת למשקיעים, שותף, פוסט - כל אחד מהם נבנה מהטבלה שלכם, כך שהוא אומר רק את מה שידוע לכם.</p>
+
+  <div class="step">
+    <h3><span class="n">1</span>מצגת למשקיעים, שנבנית בצ'אט</h3>
+    <p>כל צ'אט חינמי יכול לבנות מצגת כקובץ <span lang="en" dir="ltr">HTML</span> אחד: דף אינטרנט שעובד כמו מצגת. לא צריך לקרוא שום קוד.</p>
+    <div class="prompt-box">
+      <label for="g1">פרומפט &middot; <span class="sug">הצעה - ערכו כאן</span></label>
+      <textarea class="prompt" id="g1">הנה טבלת המיזם שלנו: [הדביקו כאן].
+בנה מצגת למשקיעים של 8 שקופיות כקובץ HTML אחד:
+בעיה / פתרון / למה עכשיו / שוק / תחרות / מודל עסקי / צוות / מה אנחנו מבקשים.
+כללים:
+- רק פריטים עם התגית ידוע מוצגים כעובדות. פריטים עם התגית הנחה נכתבים בצורה "אנחנו מאמינים ש...".
+- בלי מספרים, לוגואים או ציטוטים מומצאים.
+- טקסט גדול, רעיון אחד בכל שקופית.
+- מקשי החיצים ומקש הרווח עוברים בין השקופיות.
+החזר את הקובץ המלא.</textarea>
+    </div>
+    <div class="tip info"><strong>איפה רואים אותה:</strong> <span lang="en" dir="ltr">Claude</span> מציג אותה כ-<span lang="en" dir="ltr">artifact</span> ליד הצ'אט; <span lang="en" dir="ltr">Gemini</span> פותח אותה ב-<span lang="en" dir="ltr">Canvas</span>; ב-<span lang="en" dir="ltr">ChatGPT</span>, פתחו את התצוגה המקדימה של הקוד. בשלושתם אפשר להוריד אותה. פתחו את הקובץ בדפדפן ולחצו <span lang="en" dir="ltr">F11</span> למסך מלא.</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">2</span>מציאת שותפים</h3>
+    <div class="prompt-box">
+      <label for="g2">פרומפט &middot; <span class="sug">הצעה - ערכו כאן</span></label>
+      <textarea class="prompt" id="g2">הצוות שלנו: [שמות וכישורים]. המיזם שלנו: [משפט אחד]. ההנחה המסוכנת ביותר שלנו: [הדביקו כאן].
+1. קודם שאל כל אחד מאיתנו: את מי אנחנו כבר מכירים שיכול לעזור?
+2. אילו כישורים חסרים לנו?
+3. תאר את השותף המייסד או היועץ שאנחנו צריכים.
+4. איפה אנשים כאלה מתקבצים - ברשת ובעיר שלנו, [שם העיר]?
+5. תן לי 3 מחרוזות חיפוש ל-LinkedIn.
+6. נסח הודעה ראשונה של עד 80 מילים: ספציפית, שמתמקדת בהם, עם בקשה אחת ברורה.</textarea>
+    </div>
+    <div class="tip info"><strong>בגרסה החינמית של <span lang="en" dir="ltr">LinkedIn</span></strong> יש מגבלה חודשית על חיפושים ועל הודעות אישיות - אז השקיעו בהודעה הראשונה.</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">3</span>פוסט שבודק את הרעיון שלכם</h3>
+    <div class="prompt-box">
+      <label for="g3">פרומפט &middot; <span class="sug">הצעה - ערכו כאן</span></label>
+      <textarea class="prompt" id="g3">כתוב פוסט ל-LinkedIn, עד 150 מילים, שבודק את ההנחה הזו: [הדביקו כאן].
+ספר את הבעיה דרך סיפור אמיתי אחד (בלי פרטים מומצאים), שאל את הקוראים שאלה אחת על הניסיון שלהם, וסיים בקישור לרשימת ההמתנה שלנו: [קישור]. בלי מילים מפוצצות.</textarea>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEXT WEEK ============ -->
+<section class="part pf" id="next" aria-labelledby="h-next">
+  <h2 id="h-next">השבוע הבא שלכם</h2>
+
+  <div class="step">
+    <h3><span class="n">1</span>הנחה אחת, ניסוי אחד, מספר אחד</h3>
+    <div class="prompt-box">
+      <label for="n1">כתבו את זה בצ'אט &middot; <span class="sug">מלאו את החסר</span></label>
+      <textarea class="prompt" id="n1">ההנחה המסוכנת ביותר שלנו היא [...].
+נבדוק אותה כך: [...].
+צדקנו אם לפחות [X] אחוז מתוך [Y] יעשו [Z], עד [תאריך].</textarea>
+    </div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">2</span>שמרו על הרעיון שלכם פרטי</h3>
+    <p>צ'אטים חינמיים עשויים להשתמש בשיחות שלכם כדי לאמן את המודלים שלהם. כבו את זה לפני שאתם מדביקים משהו רגיש:</p>
+    <ul class="plain">
+      <li><b><span lang="en" dir="ltr">ChatGPT</span>:</b> ב-<span lang="en" dir="ltr">Settings &rarr; Data controls</span>, כבו את <span lang="en" dir="ltr">"Improve the model for everyone"</span>. או השתמשו בצ'אט זמני.</li>
+      <li><b><span lang="en" dir="ltr">Gemini</span>:</b> ב-<span lang="en" dir="ltr">Activity</span>, כבו את <span lang="en" dir="ltr">"Keep Activity"</span>. או השתמשו בצ'אט זמני.</li>
+      <li><b><span lang="en" dir="ltr">Claude</span>:</b> ב-<span lang="en" dir="ltr">Settings &rarr; Privacy</span>, כבו את האימון של המודל. או השתמשו בצ'אט אינקוגניטו.</li>
+      <li><b><span lang="en" dir="ltr">Perplexity</span>:</b> ב-<span lang="en" dir="ltr">Settings</span>, כבו את <span lang="en" dir="ltr">"AI data retention"</span>.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">3</span>הכלים של היום</h3>
+    <div class="links">
+      <a href="https://gemini.google.com/" target="_blank" rel="noopener"><b>Gemini</b><span>מחקר עמוק, <span lang="en" dir="ltr">Canvas</span></span></a>
+      <a href="https://notebooklm.google/" target="_blank" rel="noopener"><b>Gemini Notebook</b><span>המקורות שלכם</span></a>
+      <a href="https://chatgpt.com/" target="_blank" rel="noopener"><b>ChatGPT</b><span>עובד גם בלי להתחבר</span></a>
+      <a href="https://claude.ai/" target="_blank" rel="noopener"><b>Claude</b><span><span lang="en" dir="ltr">artifacts</span>: מצגות ודפים</span></a>
+      <a href="https://www.perplexity.ai/" target="_blank" rel="noopener"><b>Perplexity</b><span>תשובות עם מקורות</span></a>
+      <a href="https://search.projectpq.ai/" target="_blank" rel="noopener"><b>PQAI</b><span>חיפוש פטנטים</span></a>
+    </div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">4</span>מאיפה מגיעים כלי החשיבה</h3>
+    <ul class="plain">
+      <li><span lang="en" dir="ltr">4U</span> - <span lang="en" dir="ltr">Michael Skok</span> &middot; 5 למה - <span lang="en" dir="ltr">Toyota Production System</span></li>
+      <li>שוק ראש גשר ופרסונה - <span lang="en" dir="ltr">Bill Aulet, "Disciplined Entrepreneurship"</span></li>
+      <li>קנבס הצעת הערך - <span lang="en" dir="ltr">Strategyzer.com</span></li>
+      <li>עץ הזדמנויות ופתרונות - <span lang="en" dir="ltr">Teresa Torres, Product Talk</span></li>
+      <li>קנבס רזה - <span lang="en" dir="ltr">Ash Maurya</span></li>
+      <li>פרה-מורטם - <span lang="en" dir="ltr">Gary Klein</span></li>
+      <li>מפת הנחות וכרטיסי ניסוי - <span lang="en" dir="ltr">David J. Bland</span> ו-<span lang="en" dir="ltr">Alexander Osterwalder, "Testing Business Ideas"</span></li>
+      <li>"לפחות <span lang="en" dir="ltr">X</span> אחוז מתוך <span lang="en" dir="ltr">Y</span> יעשו <span lang="en" dir="ltr">Z</span>" ודלתות מזויפות - <span lang="en" dir="ltr">Alberto Savoia, "The Right It"</span></li>
+      <li>מבחן אמא - <span lang="en" dir="ltr">Rob Fitzpatrick</span></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>תום הגלעדי &middot; בינה מלאכותית לארגונים לומדים &middot; <a href="https://www.tomhagiladi.com/" target="_blank" rel="noopener"><span lang="en" dir="ltr">tomhagiladi.com</span></a></p>
+  <div class="accessibility-statement" id="a11y">
+    <h2>הצהרת נגישות</h2>
+    <p>אתר זה עומד בדרישות תקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע"ג-2013, ותקן ישראלי ת"י 5568 המבוסס על הנחיות WCAG 2.0 ברמה AA.</p>
+    <p>אם נתקלתם בבעיית נגישות באתר, פנו אלינו ונשמח לסייע:</p>
+    <p><strong>רכז נגישות:</strong> תום הגלעדי<br><strong>אימייל:</strong> <a href="mailto:tomhagiladi@gmail.com">tomhagiladi@gmail.com</a></p>
+  </div>
+</footer>
+
+<script src="assets/practice.js"></script>
+</body>
+</html>
