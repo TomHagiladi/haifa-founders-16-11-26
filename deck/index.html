@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI as Your Co-Founder - Tom Hagiladi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ================= LOOK ================= */
+:root{
+  --g:#75B743; --gd:#4d8420; --gl:#9ED174; --gp:#EDF5E4; --gt:#F5FAF0;
+  --red:#AF242A; --ink:#3a3835; --muted:#6b6863; --line:#E2E7DB; --paper:#fff;
+  --known:#3f7a1c; --assumed:#a35f00; --unknown:#AF242A; --purple:#6b3fa0;
+}
+h1,h2,h3,.hd{font-family:'Space Grotesk','Inter',Arial,sans-serif;letter-spacing:-.5px}
+h1{font-weight:700;font-size:74px;line-height:1.05;color:var(--gd)}
+h2{font-weight:700;font-size:48px;line-height:1.15;margin-bottom:22px;color:var(--ink)}
+h2 .g{color:var(--gd)}
+p,li{font-size:28px;line-height:1.45;font-weight:400}
+.lead{font-size:32px;line-height:1.4;font-weight:400}
+.dim{color:var(--muted)}
+.r{color:var(--red);font-weight:700}
+.g{color:var(--gd);font-weight:700}
+.kicker{font-size:17px;letter-spacing:4px;text-transform:uppercase;color:var(--gd);font-weight:700;margin-bottom:10px}
+.src{position:absolute;left:72px;bottom:20px;font-size:14px;color:var(--muted);max-width:980px;line-height:1.35}
+.pill{display:inline-block;border-radius:30px;padding:5px 18px;font-size:18px;font-weight:700;color:#fff;background:var(--red)}
+.pill.cond{background:var(--purple)}
+.pill.demo{background:var(--gd)}
+.tagrow{position:absolute;top:44px;right:72px;display:flex;gap:10px}
+.mini-logo{position:absolute;right:28px;bottom:16px;width:96px;opacity:.9}
+ul{list-style:none}
+ul.sq li{position:relative;padding-left:40px;margin:13px 0}
+ul.sq li:before{content:"";position:absolute;left:4px;top:15px;width:13px;height:13px;border:3px solid var(--g);transform:rotate(24deg);border-radius:2px}
+ol.steps{list-style:none;counter-reset:s}
+ol.steps li{counter-increment:s;position:relative;padding-left:64px;margin:14px 0;min-height:46px}
+ol.steps li:before{content:counter(s);position:absolute;left:0;top:0;width:46px;height:46px;border-radius:10px;background:var(--g);color:#fff;font-weight:800;font-size:25px;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif}
+.cols{display:flex;gap:24px}
+.card{flex:1;background:#fff;border:2px solid var(--line);border-radius:14px;padding:22px 24px}
+.card h3{font-size:28px;margin-bottom:8px;color:var(--gd)}
+.card p{font-size:23px;line-height:1.4}
+.card.tint{background:var(--gt)}
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:1fr 1fr} .g3{grid-template-columns:1fr 1fr 1fr} .g4{grid-template-columns:repeat(4,1fr)} .g5{grid-template-columns:repeat(5,1fr)}
+.tag{display:inline-block;font-weight:800;font-size:19px;letter-spacing:1px;border-radius:7px;padding:3px 12px;color:#fff;font-family:'Inter',sans-serif}
+.tag.k{background:var(--known)} .tag.a{background:var(--assumed)} .tag.u{background:var(--unknown)}
+.prompt{font-family:'Inter',sans-serif;background:var(--gt);border:1.5px solid var(--line);border-left:8px solid var(--g);border-radius:10px;padding:18px 26px;font-size:24px;line-height:1.5}
+.prompt .ln{display:block}
+.note{background:#fbeeee;border-left:7px solid var(--red);border-radius:8px;padding:16px 22px;font-size:25px;line-height:1.4}
+.note.g{background:var(--gt);border-left-color:var(--g);color:var(--ink);font-weight:400}
+table{border-collapse:collapse;width:100%;font-size:22px}
+th{background:var(--g);color:#fff;font-weight:700;padding:11px 16px;text-align:left}
+th:first-child{background:var(--gd)}
+td{padding:11px 16px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.35}
+tbody tr:nth-child(even) td{background:var(--gt)}
+.qr-box{background:#fff;border:3px solid var(--g);border-radius:16px;padding:12px;display:flex;flex-direction:column;align-items:center;gap:6px}
+.qr-box img{width:190px;height:190px;display:block}
+.qr-box span{font-size:16px;font-weight:700;color:var(--gd)}
+.big-num{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--red);line-height:1}
+.flow{display:flex;align-items:stretch;gap:0}
+.flow .node{flex:1;border-radius:14px;padding:20px 20px;display:flex;flex-direction:column;justify-content:center;text-align:center}
+.flow .arrow{flex:0 0 54px;display:flex;align-items:center;justify-content:center;font-size:40px;color:var(--g);font-weight:800}
+.chip{display:inline-block;background:var(--gp);border:1.5px solid var(--g);color:var(--gd);border-radius:24px;padding:6px 16px;font-size:21px;font-weight:700;margin:4px 6px 4px 0}
+.chip.red{background:#fbeeee;border-color:var(--red);color:var(--red)}
+.bubble{max-width:78%;border-radius:18px;padding:12px 20px;font-size:22px;line-height:1.4;margin:8px 0}
+.bubble.me{background:var(--g);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.bubble.ai{background:#f1f1ef;color:var(--ink);align-self:flex-start;border-bottom-left-radius:4px}
+.bubble.coach{background:#fbeeee;color:var(--ink);align-self:flex-start;border-left:5px solid var(--red)}
+.browser{border:2px solid #cfd4c8;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.browser .bar{height:34px;background:#eef0ea;display:flex;align-items:center;gap:7px;padding:0 12px}
+.browser .bar i{width:11px;height:11px;border-radius:50%;background:#c9cdc3;display:block}
+.sq-art{position:absolute;pointer-events:none}
+.sq-art b{position:absolute;display:block;border-radius:6px;transform:rotate(24deg)}
+/* separators */
+.slide.sep{background:var(--gl)}
+.slide.sep h2,.slide.sep .kicker{color:#fff;-webkit-text-stroke:1px #1F1E1C;paint-order:stroke fill;text-shadow:0 1px 3px rgba(0,0,0,.3)}
+.slide.sep h2{font-size:64px}
+.slide.sep .logo-card{position:absolute;top:40px;right:72px;background:#fff;border-radius:12px;padding:10px 16px}
+.slide.sep .logo-card img{width:160px;display:block}
+.agenda{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+.agenda .it{display:flex;align-items:center;gap:20px;font-size:34px;color:rgba(255,255,255,.85);font-weight:500;-webkit-text-stroke:.6px #1F1E1C;paint-order:stroke fill}
+.agenda .it .t{font-size:20px;min-width:70px;font-weight:700;-webkit-text-stroke:0;color:#2c4a14}
+.agenda .it.act{color:#fff;font-weight:800;font-size:40px}
+.agenda .it.act:after{content:"";width:16px;height:16px;background:#fff;border:3px solid var(--red);transform:rotate(24deg);border-radius:2px;margin-left:6px}
+/* break */
+.countdown{font-family:'Space Grotesk',sans-serif;font-size:150px;font-weight:700;color:var(--gd);line-height:1}
+.btn{font-family:'Inter',sans-serif;font-size:26px;font-weight:700;background:var(--g);color:#fff;border:0;border-radius:12px;padding:14px 34px;cursor:pointer}
+
+/* ================= MECHANICS ================= */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#2E2D2A;overflow:hidden;font-family:'Inter',Arial,sans-serif;color:var(--ink)}
+#stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#deck{width:1280px;height:720px;flex:0 0 1280px;position:relative;transform-origin:center center;overflow:hidden;background:var(--paper);box-shadow:0 24px 80px rgba(0,0,0,.55)}
+.slide{position:absolute;inset:0;padding:46px 72px 54px;display:none;flex-direction:column;background:var(--paper);color:var(--ink);overflow:hidden}
+.slide.on{display:flex}
+.fill{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center}
+.split{display:flex;gap:44px;flex:1;min-height:0;align-items:center}
+.split>.tx{flex:1.2;min-width:0}
+.split>.im{flex:1;min-width:0;align-self:stretch;display:flex;align-items:center;justify-content:center}
+.mid{justify-content:center;align-items:center;text-align:center}
+.f{opacity:0;transform:translateY(9px);transition:opacity .3s ease,transform .3s ease}
+.f.vis{opacity:1;transform:none}
+#bar{position:fixed;bottom:0;left:0;height:4px;background:var(--g);transition:width .25s ease;z-index:9}
+#num{position:fixed;bottom:14px;right:20px;color:#8d8b86;font-size:13px;letter-spacing:1px;z-index:9}
+#help{position:fixed;bottom:14px;left:20px;color:#75736e;font-size:12px;z-index:9}
+</style>
+</head>
+<body>
+<div id="stage"><div id="deck">
+
+<!-- 1 TITLE -->
+<section class="slide">
+  <div class="sq-art" style="right:60px;top:120px;width:420px;height:460px" aria-hidden="true">
+    <b style="left:160px;top:10px;width:190px;height:190px;background:var(--g)"></b>
+    <b style="left:40px;top:170px;width:130px;height:130px;background:var(--red)"></b>
+    <b style="left:220px;top:230px;width:160px;height:160px;background:var(--gp);border:4px solid var(--g)"></b>
+    <b style="left:110px;top:350px;width:80px;height:80px;background:var(--gl)"></b>
+  </div>
+  <div class="fill" style="max-width:740px">
+    <img src="assets/logo.png" alt="" style="width:250px;margin-bottom:34px">
+    <h1>AI as Your<br>Co-Founder</h1>
+    <p class="lead dim" style="margin-top:18px">Think, test and pitch - with <span class="r">free</span> AI tools</p>
+    <p style="margin-top:34px;font-size:23px;line-height:1.5"><b>Tom Hagiladi</b><br><span class="dim">University of Haifa &middot; Haifa Innovation Labs (HIL)<br>Ideation Program with 50:50 Startups &middot; 16.11.2026</span></p>
+  </div>
+</section>
+
+<!-- 2 ABOUT -->
+<section class="slide">
+  <div class="split">
+    <div class="im" style="flex:.62"><img src="assets/tom.jpg" alt="" style="max-height:600px;border-radius:16px;object-fit:cover"></div>
+    <div class="tx">
+      <div class="kicker">Nice to meet you</div>
+      <h2>Tom Hagiladi</h2>
+      <ul class="sq">
+        <li class="f">20 years in education - including <b>founding and running a school</b></li>
+        <li class="f">The last 3 years: <span class="r">only AI</span> - with the Ministry of Education, universities and businesses</li>
+        <li class="f">Podcast host, community manager, co-author of a book on learning with AI</li>
+      </ul>
+      <div style="display:flex;align-items:flex-end;gap:20px;margin-top:22px">
+        <img src="assets/bio-podcast.png" alt="" style="height:110px;border-radius:10px">
+        <img src="assets/bio-book.png" alt="" style="height:150px;border-radius:6px">
+        <img src="assets/bio-community.png" alt="" style="height:96px;border-radius:8px">
+      </div>
+    </div>
+  </div>
+  <img src="assets/logo.png" class="mini-logo" alt="">
+</section>
+
+<!-- 3 POLL -->
+<section class="slide">
+  <div class="kicker">Hands up &middot; Zoom: answer in the chat</div>
+  <h2>Quick poll</h2>
+  <div class="grid g2" style="flex:1;margin-top:6px">
+    <div class="card tint f" style="display:flex;gap:20px;align-items:center"><div class="big-num" style="font-size:70px;color:var(--g)">1</div><p>Which AI do you use most?<br><span class="dim" style="font-size:22px">ChatGPT &middot; Gemini &middot; Claude &middot; other</span></p></div>
+    <div class="card tint f" style="display:flex;gap:20px;align-items:center"><div class="big-num" style="font-size:70px;color:var(--g)">2</div><p>Do you <b>pay</b> for one?</p></div>
+    <div class="card tint f" style="display:flex;gap:20px;align-items:center"><div class="big-num" style="font-size:70px;color:var(--g)">3</div><p>Have you ever run a <b>Deep Research</b>?</p></div>
+    <div class="card tint f" style="display:flex;gap:20px;align-items:center"><div class="big-num" style="font-size:70px;color:var(--g)">4</div><p>Have you used <b>NotebookLM</b><br><span class="dim" style="font-size:22px">now called Gemini Notebook?</span></p></div>
+  </div>
+  <img src="assets/logo.png" class="mini-logo" alt="">
+</section>
+
+<!-- 4 RULES -->
+<section class="slide">
+  <div class="kicker">Today</div>
+  <h2>Five rules for today</h2>
+  <div class="grid g5" style="flex:1;align-content:center">
+    <div class="card f" style="border-top:8px solid var(--red);text-align:center;padding:28px 16px"><div class="big-num" style="font-size:44px;margin-bottom:12px">01</div><p style="font-size:27px"><b>No code</b> today</p></div>
+    <div class="card f" style="border-top:8px solid var(--g);text-align:center;padding:28px 16px"><div class="big-num" style="font-size:44px;margin-bottom:12px;color:var(--gd)">02</div><p style="font-size:27px">The AI <b>interviews you</b> - not the other way round</p></div>
+    <div class="card f" style="border-top:8px solid var(--red);text-align:center;padding:28px 16px"><div class="big-num" style="font-size:44px;margin-bottom:12px">03</div><p style="font-size:27px">Nothing the AI says <b>counts as evidence</b></p></div>
+    <div class="card f" style="border-top:8px solid var(--g);text-align:center;padding:28px 16px"><div class="big-num" style="font-size:44px;margin-bottom:12px;color:var(--gd)">04</div><p style="font-size:27px"><b>Free</b> tools only</p></div>
+    <div class="card f" style="border-top:8px solid var(--g);text-align:center;padding:28px 16px"><div class="big-num" style="font-size:44px;margin-bottom:12px;color:var(--gd)">05</div><p style="font-size:27px">Answer in <b>any language</b><br><span class="dim" style="font-size:21px">English &middot; Arabic &middot; Hebrew</span></p></div>
+  </div>
+  <img src="assets/logo.png" class="mini-logo" alt="">
+</section>
+
+<!-- 5 SEPARATOR: PART 1 -->
+<section class="slide sep">
+  <div class="logo-card"><img src="assets/logo.png" alt=""></div>
+  <div class="sq-art" style="right:80px;bottom:60px;width:380px;height:330px" aria-hidden="true">
+    <b style="left:150px;top:20px;width:170px;height:170px;background:#fff"></b>
+    <b style="left:40px;top:150px;width:120px;height:120px;background:var(--red)"></b>
+    <b style="left:230px;top:200px;width:110px;height:110px;background:var(--gd)"></b>
+  </div>
+  <div class="fill">
+    <div class="kicker">Part 1</div>
+    <h2>Think with AI</h2>
+    <div class="agenda">
+      <div class="it act"><span class="t">16:50</span>Think</div>
+      <div class="it"><span class="t">17:35</span>Research</div>
+      <div class="it"><span class="t">18:15</span>Test</div>
+      <div class="it"><span class="t">18:50</span>Pitch</div>
+      <div class="it"><span class="t">19:15</span>Your next week</div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 FLATTERER -->
+<section class="slide">
+  <h2>Your chatbot is a <span class="r">flatterer</span></h2>
+  <div class="split" style="align-items:center">
+    <div style="flex:0 0 420px;text-align:center">
+      <div class="big-num" style="font-size:190px">49%</div>
+      <p class="dim" style="font-size:22px;margin-top:8px">more agreement than people</p>
+    </div>
+    <div class="tx">
+      <ul class="sq">
+        <li>11 AI models <b>agreed with users' actions</b> 49% more often than humans did.</li>
+        <li class="f">People <span class="r">trusted the flattering answers more</span> - and preferred them.</li>
+      </ul>
+      <div class="note g f" style="margin-top:22px;font-size:25px">"It wasn't that AI was hallucinating - <b>the teams were.</b>"<br><span class="dim" style="font-size:19px">Steve Blank, 2026</span></div>
+    </div>
+  </div>
+  <div class="src">Cheng et al., Science, March 2026 &middot; Steve Blank, Poets&amp;Quants, 21.9.2026</div>
+</section>
+
+<!-- 7 THREE FIXES -->
+<section class="slide">
+  <h2>Three fixes that were <span class="g">tested</span></h2>
+  <table style="font-size:26px">
+    <thead><tr><th style="width:24%">Fix</th><th style="width:36%">Instead of</th><th>Write</th></tr></thead>
+    <tbody>
+      <tr class="f"><td><b>Ask, don't tell</b></td><td class="dim">"Students waste money on lunch."</td><td>"Is it true that students waste money on lunch?"</td></tr>
+      <tr class="f"><td><b>Third person</b></td><td class="dim">"My idea is..."</td><td>"A student team proposes..."</td></tr>
+      <tr class="f"><td><b>Case against</b></td><td class="dim">"What do you think of my idea?"</td><td>"Give me the strongest case against it. What evidence would settle it?"</td></tr>
+    </tbody>
+  </table>
+  <div class="note f" style="margin-top:auto;margin-bottom:34px;font-size:28px">Try it: when the AI criticises your idea, reply <b>"Are you sure?"</b> If the critique collapses, it was weak.</div>
+  <div class="src">UK AI Security Institute, "Ask, don't tell", 2026 &middot; SYCON-Bench, EMNLP 2025</div>
+</section>
+
+<!-- 8 MODEL VS SEARCH -->
+<section class="slide">
+  <h2>Language model <span class="dim">or</span> search tool?</h2>
+  <div class="cols" style="flex:1;align-items:stretch">
+    <div class="card tint" style="border-top:8px solid var(--g)">
+      <h3 style="font-size:34px">Language model</h3>
+      <ul class="sq"><li>Ideas</li><li>Questions</li><li>Structure</li><li>Critique</li></ul>
+      <p class="dim" style="font-size:21px;margin-top:10px">ChatGPT &middot; Gemini &middot; Claude</p>
+    </div>
+    <div class="card" style="border-top:8px solid var(--ink)">
+      <h3 style="font-size:34px;color:var(--ink)">Search tool</h3>
+      <ul class="sq"><li>Facts</li><li>Numbers</li><li>Competitors</li><li>Sources you can open</li></ul>
+      <p class="dim" style="font-size:21px;margin-top:10px">Perplexity &middot; Deep Research &middot; Google</p>
+    </div>
+  </div>
+  <div class="note f" style="margin-top:22px">Any number a chat gives you is <span class="tag a">ASSUMED</span> - until you open the source.</div>
+</section>
+
+<!-- 9 FRAMEWORK AS CONTEXT -->
+<section class="slide">
+  <div class="kicker">The big idea of today</div>
+  <h2>A framework is a list of the <span class="r">right questions</span></h2>
+  <div class="flow" style="flex:1;margin:10px 0 6px">
+    <div class="node" style="background:var(--gt);border:2px solid var(--g)"><h3 style="font-size:28px;color:var(--gd)">Framework</h3><p style="font-size:21px;margin-top:6px">Lean Canvas, Mom Test, Value Proposition...</p></div>
+    <div class="arrow f">+</div>
+    <div class="node f" style="background:#fff;border:2px solid var(--line)"><h3 style="font-size:28px">You</h3><p style="font-size:21px;margin-top:6px">what you know - and don't</p></div>
+    <div class="arrow f">&rarr;</div>
+    <div class="node f" style="background:var(--g);color:#fff"><h3 style="font-size:28px;color:#fff">AI chat</h3><p style="font-size:21px;margin-top:6px">asks one question at a time</p></div>
+    <div class="arrow f">&rarr;</div>
+    <div class="node f" style="background:#fff;border:2px solid var(--ink)"><h3 style="font-size:28px">Your table</h3><p style="margin-top:8px"><span class="tag k">KNOWN</span><br><span class="tag a" style="margin-top:6px">ASSUMED</span><br><span class="tag u" style="margin-top:6px">UNKNOWN</span></p></div>
+  </div>
+  <p class="lead f" style="text-align:center">It pulls out what you know - and <b>marks what you don't</b>.</p>
+</section>
+
+<!-- 10 ASK TAG TEST -->
+<section class="slide">
+  <h2>Ask &middot; Tag &middot; Test</h2>
+  <div class="grid g3" style="margin-bottom:20px">
+    <div class="card f" style="border-left:8px solid var(--known)"><span class="tag k">KNOWN</span><p style="margin-top:8px;font-size:22px">Evidence from real people: <b>who, when, how many</b></p></div>
+    <div class="card f" style="border-left:8px solid var(--assumed)"><span class="tag a">ASSUMED</span><p style="margin-top:8px;font-size:22px">Our belief, desk research - or <b>anything the AI suggested</b></p></div>
+    <div class="card f" style="border-left:8px solid var(--unknown)"><span class="tag u">UNKNOWN</span><p style="margin-top:8px;font-size:22px">No answer yet - and that's <b>a good answer</b></p></div>
+  </div>
+  <table class="f" style="font-size:20px">
+    <thead><tr><th style="width:20%">Block</th><th style="width:44%">Our answer <span style="font-weight:400">(campus leftover-meals app)</span></th><th style="width:14%">Tag</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><td>Problem</td><td>Cafeterias throw away food every evening</td><td><span class="tag k">KNOWN</span></td><td>2 managers, last week</td></tr>
+      <tr><td>Customer</td><td>Students would buy it at half price</td><td><span class="tag a">ASSUMED</span></td><td>our guess</td></tr>
+      <tr><td>Revenue</td><td>Cafeterias pay us a 10% fee</td><td><span class="tag u">UNKNOWN</span></td><td>-</td></tr>
+    </tbody>
+  </table>
+  <p class="f" style="margin-top:16px;font-size:25px">At the end: your <span class="r">3 riskiest assumptions</span> - and the cheapest test for each, this week.</p>
+</section>
+
+<!-- 11 TOOLBOX -->
+<section class="slide">
+  <div class="tagrow"><span class="pill">Practice</span></div>
+  <h2>Which framework for which question?</h2>
+  <div class="grid g3" style="flex:1;align-content:stretch;grid-template-rows:1fr 1fr">
+    <div class="card tint f"><p class="dim" style="font-size:20px">Is the problem worth solving?</p><h3>4 U's + 5 Whys</h3><p class="dim" style="font-size:17px">Michael Skok &middot; Toyota</p></div>
+    <div class="card tint f"><p class="dim" style="font-size:20px">Who exactly?</p><h3>Beachhead + persona</h3><p class="dim" style="font-size:17px">Bill Aulet, MIT</p></div>
+    <div class="card tint f"><p class="dim" style="font-size:20px">What do they really need?</p><h3>Value Proposition Canvas</h3><p class="dim" style="font-size:17px">Strategyzer</p></div>
+    <div class="card f" style="border-color:var(--red)"><p class="dim" style="font-size:20px">Which solution?</p><h3 style="color:var(--red)">Opportunity Solution Tree</h3><p style="font-size:18px"><b>at least 3 solutions</b> before you pick &middot; <span class="dim">Teresa Torres</span></p></div>
+    <div class="card f" style="border-color:var(--g)"><p class="dim" style="font-size:20px">How does it make money?</p><h3>Lean Canvas</h3><p class="dim" style="font-size:17px">Ash Maurya</p></div>
+    <div class="card tint f"><p class="dim" style="font-size:20px">What could kill us?</p><h3>Pre-mortem</h3><p class="dim" style="font-size:17px">Gary Klein</p></div>
+  </div>
+  <p class="dim f" style="font-size:20px;margin-top:10px">Each one is ready to copy on the practice guide.</p>
+</section>
+
+<!-- 12 MASTER PROMPT -->
+<section class="slide">
+  <h2>The prompt that runs it all</h2>
+  <div class="prompt" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+    <span class="ln">Act as my <b>skeptical co-founder</b>. Interview me to fill in the framework below.</span>
+    <span class="ln f">Go one block at a time. Ask <b>ONE</b> question, then wait.</span>
+    <span class="ln f">Tag every answer <span class="tag k">KNOWN</span> <span class="tag a">ASSUMED</span> <span class="tag u">UNKNOWN</span> and say why.</span>
+    <span class="ln f">Restate my claims as questions. Push back on vague answers.</span>
+    <span class="ln f">Judge this as a stranger's idea. <b>No praise.</b></span>
+    <span class="ln f">Label your own ideas "AI SUGGESTION - unverified".</span>
+    <span class="ln f">At the end: the table, the <span class="r">3 riskiest assumptions</span>, and the cheapest test for each.</span>
+  </div>
+  <p class="dim" style="font-size:20px;margin-top:12px">Short version. The full prompt is on the practice guide - edit it, copy it, paste it.</p>
+</section>
+
+<!-- 13 PRACTICE 1 -->
+<section class="slide">
+  <div class="tagrow"><span class="pill">Practice &middot; 30 min</span></div>
+  <h2>Practice 1 &middot; Let the AI interview you</h2>
+  <div class="split" style="align-items:center">
+    <div class="tx">
+      <ol class="steps">
+        <li class="f">Pick the framework for <b>your</b> stage</li>
+        <li class="f">Paste the master prompt + the framework into any free chat</li>
+        <li class="f">Answer honestly - <b>"I don't know"</b> is a good answer</li>
+        <li class="f">Copy the final table into a doc - <span class="r">you'll need it after the break</span></li>
+      </ol>
+      <p class="f dim" style="font-size:21px;margin-top:10px">Zoom: a breakout room per team. At the end, each team posts <b>one risky assumption</b> in the chat.</p>
+    </div>
+    <div class="im" style="flex:0 0 250px"><div class="qr-box f"><img src="assets/qr.svg" alt="QR code to the practice guide"><span>Practice guide</span></div></div>
+  </div>
+</section>
+
+<!-- 14 SEPARATOR: PART 2 -->
+<section class="slide sep">
+  <div class="logo-card"><img src="assets/logo.png" alt=""></div>
+  <div class="sq-art" style="right:80px;bottom:60px;width:380px;height:330px" aria-hidden="true">
+    <b style="left:150px;top:20px;width:170px;height:170px;background:#fff"></b>
+    <b style="left:40px;top:150px;width:120px;height:120px;background:var(--red)"></b>
+    <b style="left:230px;top:200px;width:110px;height:110px;background:var(--gd)"></b>
+  </div>
+  <div class="fill">
+    <div class="kicker">Part 2</div>
+    <h2>Research outward</h2>
+    <div class="agenda">
+      <div class="it"><span class="t">16:50</span>Think</div>
+      <div class="it act"><span class="t">17:35</span>Research</div>
+      <div class="it"><span class="t">18:15</span>Test</div>
+      <div class="it"><span class="t">18:50</span>Pitch</div>
+      <div class="it"><span class="t">19:15</span>Your next week</div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 DEEP RESEARCH -->
+<section class="slide">
+  <div class="tagrow"><span class="pill cond">If you don't know it yet</span></div>
+  <h2>Deep Research</h2>
+  <div class="split">
+    <div class="tx">
+      <p class="lead">An agent that reads <b>dozens of sources</b> for 5-10 minutes - and writes a <b>cited report</b>.</p>
+      <table class="f" style="margin-top:20px;font-size:22px">
+        <thead><tr><th>Free plan</th><th>Deep Research</th></tr></thead>
+        <tbody>
+          <tr><td><b>Gemini</b></td><td><span class="g">Yes - use it today</span></td></tr>
+          <tr><td>ChatGPT</td><td>Limited</td></tr>
+          <tr><td>Perplexity</td><td>1 a month</td></tr>
+          <tr><td>Claude</td><td class="dim">Paid plans only</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="im" style="flex:.85;flex-direction:column;gap:18px">
+      <div class="browser" style="width:100%">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div style="padding:20px 24px">
+          <div style="height:22px;width:70%;background:var(--ink);border-radius:5px;margin-bottom:16px"></div>
+          <div style="height:11px;background:#e3e5df;border-radius:5px;margin:9px 0"></div>
+          <div style="height:11px;width:92%;background:#e3e5df;border-radius:5px;margin:9px 0"></div>
+          <div style="height:11px;width:80%;background:#e3e5df;border-radius:5px;margin:9px 0"></div>
+          <p style="font-size:18px;margin-top:12px"><span class="chip" style="font-size:15px">[1]</span><span class="chip" style="font-size:15px">[2]</span><span class="chip" style="font-size:15px">[3]</span><span class="chip" style="font-size:15px">[27]</span></p>
+        </div>
+      </div>
+      <div class="note f" style="font-size:23px;width:100%">Open <b>3 of its sources</b>. Check <b>every number</b>.</div>
+    </div>
+  </div>
+  <div class="src">Free-plan limits as listed by each vendor, 15.11.2026. Vendors don't publish exact quotas.</div>
+</section>
+
+<!-- 16 GEMINI NOTEBOOK -->
+<section class="slide">
+  <div class="tagrow"><span class="pill cond">If you don't know it yet</span></div>
+  <h2>Gemini Notebook <span class="dim" style="font-size:30px">(formerly NotebookLM)</span></h2>
+  <div class="flow" style="flex:1;margin:4px 0 14px">
+    <div class="node" style="background:var(--gt);border:2px solid var(--g);text-align:left">
+      <p style="font-size:20px" class="dim">Your sources</p>
+      <ul class="sq" style="margin-top:4px"><li style="font-size:22px;margin:6px 0">Interview notes</li><li style="font-size:22px;margin:6px 0">Competitor websites</li><li style="font-size:22px;margin:6px 0">Papers and reports</li><li style="font-size:22px;margin:6px 0">YouTube videos</li></ul>
+    </div>
+    <div class="arrow">&rarr;</div>
+    <div class="node" style="background:var(--g);color:#fff;flex:.8"><h3 style="font-size:30px;color:#fff">One notebook<br>per market</h3></div>
+    <div class="arrow f">&rarr;</div>
+    <div class="node f" style="background:#fff;border:2px solid var(--line);text-align:left">
+      <ul class="sq"><li style="font-size:22px;margin:6px 0">Answers <b>with citations</b></li><li style="font-size:22px;margin:6px 0">Mind map</li><li style="font-size:22px;margin:6px 0">Report</li><li style="font-size:22px;margin:6px 0">Audio overview - <b>also in Arabic</b></li></ul>
+    </div>
+  </div>
+  <p class="lead f">It answers from <b>your</b> sources - not from the whole internet.</p>
+</section>
+
+<!-- 17 QUICK CHECKS -->
+<section class="slide">
+  <h2>Quick checks, <span class="g">with sources</span></h2>
+  <div class="cols" style="flex:1;align-items:stretch">
+    <div class="card tint" style="flex:1.1">
+      <h3>Perplexity</h3>
+      <p>Fast answers with links you can open:</p>
+      <ul class="sq"><li style="font-size:24px">competitors</li><li style="font-size:24px">prices</li><li style="font-size:24px">market size</li></ul>
+      <div class="prompt f" style="font-size:20px;margin-top:12px">"Who are the main competitors of [X] in [region]? A table: name, link, price, main weakness from user reviews."</div>
+    </div>
+    <div class="card f" style="flex:1;border:3px solid var(--red);display:flex;flex-direction:column;justify-content:center">
+      <p class="dim" style="font-size:21px">The question every AI startup must ask:</p>
+      <p style="font-size:36px;line-height:1.3;font-weight:700;color:var(--red);margin-top:10px">"What happens when ChatGPT or Gemini adds my feature?"</p>
+      <p class="dim" style="font-size:20px;margin-top:14px">Big platforms keep swallowing small tools.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 18 PATENTS -->
+<section class="slide">
+  <div class="tagrow"><span class="pill">Practice</span></div>
+  <h2>Patents: has someone <span class="r">already</span> done it?</h2>
+  <div class="split" style="align-items:flex-start">
+    <div class="tx">
+      <ol class="steps">
+        <li class="f" style="font-size:25px">Describe the idea in 3 sentences - <b>without the secret part</b></li>
+        <li class="f" style="font-size:25px">Ask a chat for keywords, synonyms, patent classes (CPC) and search strings</li>
+        <li class="f" style="font-size:25px">Search <b>PQAI</b> + <b>Google Patents</b></li>
+        <li class="f" style="font-size:25px">Open the 3 closest: abstract, claim 1, one drawing</li>
+        <li class="f" style="font-size:25px">Back to the chat: <b>"What is different in my idea?"</b></li>
+      </ol>
+    </div>
+    <div class="im" style="flex:.62;flex-direction:column;gap:14px;align-items:stretch;justify-content:center">
+      <div class="card tint" style="padding:16px 20px"><h3 style="font-size:25px">PQAI</h3><p style="font-size:19px">free AI search &middot; doesn't log your searches</p></div>
+      <div class="card tint" style="padding:16px 20px"><h3 style="font-size:25px">Google Patents</h3><p style="font-size:19px">free &middot; patents from many countries, translated</p></div>
+      <div class="card" style="padding:16px 20px"><h3 style="font-size:25px">Perplexity Patents</h3><p style="font-size:19px">ask in plain words &middot; free during beta</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 19 PATENT WARNINGS -->
+<section class="slide">
+  <h2>Patents: what to know</h2>
+  <div class="grid g2">
+    <div class="note f" style="font-size:24px"><b>Not legal advice.</b> Finding nothing does not mean it's new.</div>
+    <div class="note f" style="font-size:24px"><b>Chats invent patent numbers.</b> Open every number on Google Patents.</div>
+    <div class="note f" style="font-size:24px"><b>Don't paste your secret sauce</b> into a chat. Turn off training first.</div>
+    <div class="note f" style="font-size:24px"><b>File before you publish.</b> Europe and Israel have no general grace period.</div>
+  </div>
+  <div class="card tint f" style="margin-top:18px;margin-bottom:10px;padding:18px 24px;display:flex;flex-direction:column;justify-content:center;gap:12px">
+    <p style="font-size:27px;line-height:1.5"><b>Turn off training:</b> ChatGPT - Settings &rarr; Data controls &middot; Gemini - Activity &rarr; Keep Activity off &middot; Claude - Settings &rarr; Privacy</p>
+    <p style="font-size:27px;line-height:1.5"><b>Free expert help:</b> WIPO innovation support centres (TISC) - for example at An-Najah University, Nablus &middot; the Israel Patent Office database</p>
+  </div>
+</section>
+
+<!-- 20 BREAK -->
+<section class="slide mid">
+  <img src="assets/logo.png" alt="" style="width:200px;margin-bottom:24px">
+  <h2 style="font-size:60px">Break &middot; 15 minutes</h2>
+  <div class="countdown" id="cd">15:00</div>
+  <p class="lead" id="cdback" style="margin:14px 0 22px;min-height:46px"></p>
+  <button class="btn" id="cdbtn" type="button">Start the timer</button>
+</section>
+
+<!-- 21 SEPARATOR: PART 3 -->
+<section class="slide sep">
+  <div class="logo-card"><img src="assets/logo.png" alt=""></div>
+  <div class="sq-art" style="right:80px;bottom:60px;width:380px;height:330px" aria-hidden="true">
+    <b style="left:150px;top:20px;width:170px;height:170px;background:#fff"></b>
+    <b style="left:40px;top:150px;width:120px;height:120px;background:var(--red)"></b>
+    <b style="left:230px;top:200px;width:110px;height:110px;background:var(--gd)"></b>
+  </div>
+  <div class="fill">
+    <div class="kicker">Part 3</div>
+    <h2>Test before you build</h2>
+    <div class="agenda">
+      <div class="it"><span class="t">16:50</span>Think</div>
+      <div class="it"><span class="t">17:35</span>Research</div>
+      <div class="it act"><span class="t">18:15</span>Test</div>
+      <div class="it"><span class="t">18:50</span>Pitch</div>
+      <div class="it"><span class="t">19:15</span>Your next week</div>
+    </div>
+  </div>
+</section>
+
+<!-- 22 DON'T BUILD -->
+<section class="slide">
+  <h2>Don't build. <span class="r">Test.</span></h2>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:26px">
+    <div class="flow f" style="opacity:.75">
+      <div class="node" style="background:#f1f1ef"><p><b>Build</b></p></div><div class="arrow" style="color:#aaa">&rarr;</div>
+      <div class="node" style="background:#f1f1ef"><p>weeks of code</p></div><div class="arrow" style="color:#aaa">&rarr;</div>
+      <div class="node" style="background:#f1f1ef"><p>an MVP</p></div><div class="arrow" style="color:#aaa">&rarr;</div>
+      <div class="node" style="background:#f1f1ef"><p>"nobody wants it"</p></div>
+    </div>
+    <div class="flow f">
+      <div class="node" style="background:var(--g);color:#fff"><p><b>Test</b></p></div><div class="arrow">&rarr;</div>
+      <div class="node" style="background:var(--gt);border:2px solid var(--g)"><p>this week, no code</p></div><div class="arrow">&rarr;</div>
+      <div class="node" style="background:var(--gt);border:2px solid var(--g)"><p>the riskiest assumption</p></div><div class="arrow">&rarr;</div>
+      <div class="node" style="background:var(--gt);border:2px solid var(--g)"><p><b>learn</b></p></div>
+    </div>
+    <p class="lead f" style="text-align:center"><b>Riskiest Assumption Test:</b> the smallest test of your biggest unknown.</p>
+  </div>
+  <div class="src">Rik Higham, "The MVP is dead. Long live the RAT.", 2016</div>
+</section>
+
+<!-- 23 ASSUMPTION MAP -->
+<section class="slide">
+  <h2>The assumption map</h2>
+  <div class="split" style="align-items:stretch">
+    <div class="tx" style="flex:.8;display:flex;flex-direction:column;justify-content:center">
+      <p>Take your table from practice 1.</p>
+      <p style="margin-top:12px">Place every <span class="tag a">ASSUMED</span> and <span class="tag u">UNKNOWN</span> on two axes:</p>
+      <p style="margin-top:12px"><b>How important?</b><br><b>How much evidence?</b></p>
+      <p class="f" style="margin-top:18px;font-size:30px">Test first: <span class="r">important + no evidence</span>.</p>
+    </div>
+    <div class="im" style="flex:1;position:relative">
+      <div style="position:relative;width:560px;height:520px">
+        <div style="position:absolute;left:60px;top:0;width:500px;height:470px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:8px">
+          <div style="background:var(--gt);border-radius:10px;padding:14px;font-size:20px;color:var(--gd);font-weight:700">Keep an eye on it</div>
+          <div style="background:#fbeeee;border:3px solid var(--red);border-radius:10px;padding:14px;font-size:24px;color:var(--red);font-weight:800">TEST FIRST</div>
+          <div style="background:#f4f4f2;border-radius:10px;padding:14px;font-size:20px;color:var(--muted);font-weight:700">Not now</div>
+          <div style="background:#f4f4f2;border-radius:10px;padding:14px;font-size:20px;color:var(--muted);font-weight:700">Later</div>
+        </div>
+        <div style="position:absolute;left:0;top:0;height:470px;width:50px;display:flex;align-items:center;justify-content:center"><span style="transform:rotate(-90deg);white-space:nowrap;font-size:19px;font-weight:700;color:var(--ink)">Important &uarr;</span></div>
+        <div style="position:absolute;left:60px;top:482px;width:500px;display:flex;justify-content:space-between;font-size:19px;font-weight:700"><span>Have evidence</span><span>No evidence &rarr;</span></div>
+        <span class="f" style="position:absolute;left:400px;top:70px;width:26px;height:26px;border-radius:50%;background:var(--assumed);box-shadow:0 0 0 4px #fff"></span>
+        <span class="f" style="position:absolute;left:470px;top:150px;width:26px;height:26px;border-radius:50%;background:var(--unknown);box-shadow:0 0 0 4px #fff"></span>
+        <span class="f" style="position:absolute;left:170px;top:120px;width:26px;height:26px;border-radius:50%;background:var(--known);box-shadow:0 0 0 4px #fff"></span>
+        <span class="f" style="position:absolute;left:430px;top:340px;width:26px;height:26px;border-radius:50%;background:var(--assumed);box-shadow:0 0 0 4px #fff"></span>
+      </div>
+    </div>
+  </div>
+  <div class="src">David J. Bland &amp; Alexander Osterwalder, "Testing Business Ideas"</div>
+</section>
+
+<!-- 24 TEST CARD -->
+<section class="slide">
+  <h2>The test card</h2>
+  <div class="split" style="align-items:center">
+    <div class="tx" style="flex:1">
+      <div class="card" style="border:3px solid var(--g);padding:26px 30px">
+        <p class="f" style="margin:6px 0"><b class="g">We believe that</b> ...</p>
+        <p class="f" style="margin:6px 0"><b class="g">To verify that, we will</b> ...</p>
+        <p class="f" style="margin:6px 0"><b class="g">We measure</b> ...</p>
+        <p class="f" style="margin:6px 0"><b class="g">We are right if</b> <span class="r">at least X% of Y will Z</span></p>
+      </div>
+    </div>
+    <div class="im" style="flex:.9">
+      <div class="note g f" style="font-size:24px;line-height:1.5"><b>Example</b> - campus leftover-meals app<br>We believe students will buy evening leftovers at half price.<br>We'll put a poster with a sign-up link at the cafeteria.<br>We're right if <b>at least 15% of students who scan it join the waitlist</b> within 3 days.</div>
+    </div>
+  </div>
+  <div class="src">Test Card - Strategyzer &middot; "At least X% of Y will Z" - Alberto Savoia, "The Right It"</div>
+</section>
+
+<!-- 25 NO-CODE TESTS -->
+<section class="slide">
+  <h2>Tests <span class="r">without code</span></h2>
+  <div class="grid g4" style="margin-bottom:18px;flex:1">
+    <div class="card tint f"><h3 style="font-size:26px">Fake door</h3><p style="font-size:23px">A landing page and a sign-up button for a product that doesn't exist yet</p></div>
+    <div class="card tint f"><h3 style="font-size:26px">Mechanical Turk</h3><p style="font-size:23px">You do the "AI" by hand, behind the scenes</p></div>
+    <div class="card tint f"><h3 style="font-size:26px">Pinocchio</h3><p style="font-size:23px">A mock-up that doesn't work - do people reach for it?</p></div>
+    <div class="card tint f"><h3 style="font-size:26px">Provincial</h3><p style="font-size:23px">A tiny test with 10 real people nearby</p></div>
+  </div>
+  <div class="note g f" style="font-size:24px;margin-bottom:22px">A chat builds a landing page in minutes: <b>an app in Gemini &rarr; Google Sites</b>, or a <b>Claude artifact</b> with a public link. Be honest on the page: "coming soon - join the waitlist".</div>
+  <div class="src">Pretotyping techniques - Alberto Savoia</div>
+</section>
+
+<!-- 26 MOM TEST -->
+<section class="slide">
+  <h2>The Mom Test</h2>
+  <p style="font-size:25px;margin-bottom:14px">Talk about <b>their life</b>, not your idea. Ask about <b>the last time</b> - not about the future.</p>
+  <table>
+    <thead><tr><th style="width:50%;background:var(--red)">Don't ask</th><th>Ask</th></tr></thead>
+    <tbody>
+      <tr class="f"><td class="dim">"Would you use an app that sells leftover meals?"</td><td>"When did you last buy lunch on campus? What did you pay?"</td></tr>
+      <tr class="f"><td class="dim">"Would you pay 15 shekels for it?"</td><td>"What do you do now when you're hungry at 4 pm and short on money?"</td></tr>
+      <tr class="f"><td class="dim">"Is it a good idea?"</td><td>"What have you tried to save money on food? How did it go?"</td></tr>
+    </tbody>
+  </table>
+  <p class="f" style="margin-top:18px;font-size:25px">Let the AI <b>rewrite your questions</b> - it's very good at this.</p>
+  <div class="src">Rob Fitzpatrick, "The Mom Test"</div>
+</section>
+
+<!-- 27 AI CUSTOMER -->
+<section class="slide">
+  <div class="tagrow"><span class="pill" style="background:var(--ink)">Rehearsal only</span></div>
+  <h2>Rehearse with an AI customer</h2>
+  <div class="split" style="align-items:stretch">
+    <div class="tx" style="display:flex;flex-direction:column;justify-content:center">
+      <div style="display:flex;flex-direction:column">
+        <div class="bubble me f">Would you use an app that sells leftover meals?</div>
+        <div class="bubble ai f">Hmm, maybe. Sounds nice I guess.</div>
+        <div class="bubble me f">DEBRIEF</div>
+        <div class="bubble coach f">That was a future "would you" question - you got a polite "maybe". Try: "When did you last...?"</div>
+      </div>
+    </div>
+    <div class="im" style="flex:.8">
+      <div class="note f" style="font-size:25px"><b>Rehearsal, not evidence.</b><br>AI customers are too positive and too shallow. Nothing they say is <span class="tag k">KNOWN</span>.</div>
+    </div>
+  </div>
+  <div class="src">Nielsen Norman Group, "Synthetic Users", 2024 &middot; Steve Blank, 2026</div>
+</section>
+
+<!-- 28 PRACTICE 2 -->
+<section class="slide">
+  <div class="tagrow"><span class="pill">Practice &middot; 20 min</span></div>
+  <h2>Practice 2 &middot; Design your test</h2>
+  <div class="split" style="align-items:center">
+    <div class="tx">
+      <ol class="steps">
+        <li class="f">Take your <b>riskiest assumption</b> from practice 1</li>
+        <li class="f">Write its test card - with a <span class="r">real X%</span></li>
+        <li class="f">Pick one:
+          <div style="margin-top:8px"><span class="chip">Landing page</span><span class="chip">Interview script + AI rehearsal</span><span class="chip">Patent check</span></div></li>
+      </ol>
+    </div>
+    <div class="im" style="flex:0 0 250px"><div class="qr-box f"><img src="assets/qr.svg" alt="QR code to the practice guide"><span>Practice guide</span></div></div>
+  </div>
+</section>
+
+<!-- 29 SEPARATOR: PART 4 -->
+<section class="slide sep">
+  <div class="logo-card"><img src="assets/logo.png" alt=""></div>
+  <div class="sq-art" style="right:80px;bottom:60px;width:380px;height:330px" aria-hidden="true">
+    <b style="left:150px;top:20px;width:170px;height:170px;background:#fff"></b>
+    <b style="left:40px;top:150px;width:120px;height:120px;background:var(--red)"></b>
+    <b style="left:230px;top:200px;width:110px;height:110px;background:var(--gd)"></b>
+  </div>
+  <div class="fill">
+    <div class="kicker">Part 4</div>
+    <h2>Go outward</h2>
+    <div class="agenda">
+      <div class="it"><span class="t">16:50</span>Think</div>
+      <div class="it"><span class="t">17:35</span>Research</div>
+      <div class="it"><span class="t">18:15</span>Test</div>
+      <div class="it act"><span class="t">18:50</span>Pitch</div>
+      <div class="it"><span class="t">19:15</span>Your next week</div>
+    </div>
+  </div>
+</section>
+
+<!-- 30 PITCH DECK IN A CHAT -->
+<section class="slide">
+  <div class="tagrow"><span class="pill">Practice</span></div>
+  <h2>A pitch deck, <span class="g">built in a chat</span></h2>
+  <div class="split" style="align-items:center">
+    <div class="tx">
+      <p style="font-size:24px">Paste your table + this outline:</p>
+      <div style="margin:8px 0 12px"><span class="chip">Problem</span><span class="chip">Solution</span><span class="chip">Why now</span><span class="chip">Market</span><span class="chip">Competition</span><span class="chip">Business model</span><span class="chip">Team</span><span class="chip">Ask</span></div>
+      <div class="prompt f" style="font-size:22px">"Build an 8-slide pitch deck as <b>one HTML file</b>. Arrow keys to move."</div>
+      <p class="f" style="font-size:21px;margin-top:10px" >See it and share it: a Claude artifact &middot; Gemini Canvas &middot; ChatGPT preview</p>
+    </div>
+    <div class="im" style="flex:.85;flex-direction:column;gap:16px">
+      <div class="browser" style="width:100%">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div style="padding:30px 30px;background:var(--gt)">
+          <p style="font-size:15px;letter-spacing:3px;color:var(--gd);font-weight:700">01 / PROBLEM</p>
+          <p style="font-size:30px;font-weight:700;line-height:1.2;margin-top:6px">Cafeterias throw away food every evening</p>
+          <p style="font-size:17px;margin-top:10px"><span class="tag k" style="font-size:13px">KNOWN</span> 2 managers, last week</p>
+        </div>
+      </div>
+      <div class="note f" style="font-size:22px;width:100%">Only <span class="tag k">KNOWN</span> goes on a slide as a fact. <span class="tag a">ASSUMED</span> is written "we believe".</div>
+    </div>
+  </div>
+  <div class="src">Outline based on Sequoia Capital, "Writing a Business Plan"</div>
+</section>
+
+<!-- 31 ONLINE PRESENCE -->
+<section class="slide">
+  <div class="tagrow"><span class="pill demo">Live demo</span></div>
+  <h2>Online presence - how I do it</h2>
+  <p style="font-size:24px;margin-bottom:16px" class="dim">My social media runs with AI agents. Show, not do:</p>
+  <div class="flow" style="margin-bottom:26px">
+    <div class="node f" style="background:var(--gt);border:2px solid var(--g)"><p><b>One recording</b></p></div><div class="arrow f">&rarr;</div>
+    <div class="node f" style="background:var(--gt);border:2px solid var(--g)"><p><b>Reels and posts</b></p></div><div class="arrow f">&rarr;</div>
+    <div class="node f" style="background:var(--gt);border:2px solid var(--g)"><p><b>6 networks</b></p></div><div class="arrow f">&rarr;</div>
+    <div class="node f" style="background:var(--gt);border:2px solid var(--g)"><p><b>Replies</b> - each one approved by me</p></div>
+  </div>
+  <div class="card f" style="border:3px solid var(--red);text-align:center;padding:24px;display:flex;flex-direction:column;justify-content:center">
+    <p style="font-size:46px;font-weight:700;color:var(--red)">For founders: every post is a test.</p>
+    <p style="font-size:30px;margin-top:10px">A post with a sign-up link is a fake door.</p>
+  </div>
+</section>
+
+<!-- 32 PARTNERS -->
+<section class="slide">
+  <h2>Finding partners</h2>
+  <div class="split" style="align-items:center">
+    <div class="tx">
+      <ol class="steps">
+        <li class="f" style="font-size:25px"><b>Bird in hand:</b> list who you already know - each teammate's own circles</li>
+        <li class="f" style="font-size:25px">Describe the co-founder you're missing: the skills your team doesn't have</li>
+        <li class="f" style="font-size:25px">Ask the chat where these people gather - and for LinkedIn search strings</li>
+        <li class="f" style="font-size:25px">A first message: <b>short, specific, one clear ask</b></li>
+      </ol>
+    </div>
+    <div class="im" style="flex:.85">
+      <div class="prompt f" style="font-size:20px;line-height:1.5"><b>Example first message</b><br>"Hi Rana - I saw your talk on food logistics. We're 3 CS students building a leftover-meals app for campuses; we've spoken with 6 cafeteria managers. We need someone who knows food operations. Coffee on campus next week, 20 minutes?"</div>
+    </div>
+  </div>
+  <div class="src">Effectuation principles - Saras Sarasvathy &middot; Free LinkedIn caps searches and personal notes each month - write the first message well.</div>
+</section>
+
+<!-- 33 PRACTICE 3 -->
+<section class="slide">
+  <div class="tagrow"><span class="pill">Practice &middot; 10 min</span></div>
+  <h2>Practice 3 &middot; Pick one</h2>
+  <div class="split" style="align-items:center">
+    <div class="tx">
+      <div class="grid g3">
+        <div class="card tint f" style="text-align:center;padding:30px 16px"><h3>Pitch deck</h3><p style="font-size:21px">8 slides, one HTML file</p></div>
+        <div class="card tint f" style="text-align:center;padding:30px 16px"><h3>Partner search</h3><p style="font-size:21px">+ a first message</p></div>
+        <div class="card tint f" style="text-align:center;padding:30px 16px"><h3>LinkedIn post</h3><p style="font-size:21px">that tests your idea</p></div>
+      </div>
+    </div>
+    <div class="im" style="flex:0 0 250px"><div class="qr-box f"><img src="assets/qr.svg" alt="QR code to the practice guide"><span>Practice guide</span></div></div>
+  </div>
+</section>
+
+<!-- 34 PRE-MORTEM -->
+<section class="slide">
+  <div class="kicker">Your next week</div>
+  <h2>Pre-mortem</h2>
+  <div class="fill" style="align-items:flex-start">
+    <p style="font-size:46px;line-height:1.25;font-weight:700">It's November 2027.<br>Your startup <span class="r">failed</span>. Why?</p>
+    <div class="f" style="margin-top:30px;width:100%">
+      <div style="border-bottom:3px dashed #cfd4c8;height:46px;margin:6px 0;font-size:26px;color:var(--muted)">1.</div>
+      <div style="border-bottom:3px dashed #cfd4c8;height:46px;margin:6px 0;font-size:26px;color:var(--muted)">2.</div>
+      <div style="border-bottom:3px dashed #cfd4c8;height:46px;margin:6px 0;font-size:26px;color:var(--muted)">3.</div>
+    </div>
+    <p class="f" style="margin-top:22px;font-size:26px">Write 3 reasons <b>alone</b> - then ask the chat for the ones you missed.</p>
+  </div>
+  <div class="src">Gary Klein, "Performing a Project Premortem", Harvard Business Review, 2007</div>
+</section>
+
+<!-- 35 YOUR NEXT WEEK -->
+<section class="slide mid">
+  <p style="font-size:62px;line-height:1.2;font-weight:700;font-family:'Space Grotesk',sans-serif">One assumption &middot; <span class="g">one test</span> &middot; <span class="r">one number</span></p>
+  <div class="prompt f" style="margin-top:40px;font-size:28px;text-align:left;max-width:960px">Post in the Zoom chat - everyone, in the room too:<br><b>"Our riskiest assumption is ... We'll test it by ... We're right if ..."</b></div>
+</section>
+
+<!-- 36 THANK YOU -->
+<section class="slide">
+  <div class="split" style="align-items:center">
+    <div class="tx" style="text-align:center">
+      <img src="assets/logo.png" alt="" style="width:360px;margin-bottom:26px">
+      <h2 style="font-size:64px">Thank you</h2>
+      <p class="lead">Tom Hagiladi</p>
+      <p class="dim" style="font-size:22px;margin-top:20px">The practice guide stays with you</p>
+    </div>
+    <div class="im"><div class="qr-box" style="padding:20px"><img src="assets/qr.svg" alt="QR code to the practice guide" style="width:400px;height:400px"><span style="font-size:20px">tomhagiladi.github.io/haifa-founders-16-11-26</span></div></div>
+  </div>
+</section>
+
+</div></div>
+<div id="bar"></div><div id="num"></div>
+<div id="help">&rarr; next &middot; &larr; back &middot; F full screen</div>
+
+<script>
+(function(){
+  const deck=document.getElementById('deck'), slides=[...deck.querySelectorAll('.slide')];
+  const bar=document.getElementById('bar'), num=document.getElementById('num');
+  let si=0, fi=0, lockHash=false;
+  function frags(){ return [...slides[si].querySelectorAll('.f')]; }
+  function render(){
+    slides.forEach((s,i)=>s.classList.toggle('on', i===si));
+    frags().forEach((f,i)=>f.classList.toggle('vis', i<fi));
+    bar.style.width=((si+1)/slides.length*100)+'%';
+    num.textContent=(si+1)+' / '+slides.length;
+    lockHash=true; location.hash=(si+1); setTimeout(()=>{lockHash=false;},0);
+  }
+  function next(){ if(fi<frags().length){ fi++; } else if(si<slides.length-1){ si++; fi=0; } render(); }
+  function prev(){ if(fi>0){ fi--; } else if(si>0){ si--; fi=frags().length; } render(); }
+  function goto(n){ si=Math.max(0,Math.min(slides.length-1,n)); fi=frags().length; render(); }
+  // English deck reads left-to-right: RIGHT = forward, LEFT = back
+  document.addEventListener('keydown', e=>{
+    if(e.target.tagName==='BUTTON' && (e.key===' '||e.key==='Enter')) return;
+    switch(e.key){
+      case 'ArrowRight': case 'PageDown': case ' ': case 'Enter': e.preventDefault(); next(); break;
+      case 'ArrowLeft': case 'PageUp': case 'Backspace': e.preventDefault(); prev(); break;
+      case 'ArrowDown': e.preventDefault(); goto(si+1); break;
+      case 'ArrowUp': e.preventDefault(); goto(si-1); break;
+      case 'Home': e.preventDefault(); goto(0); break;
+      case 'End': e.preventDefault(); goto(slides.length-1); break;
+      case 'f': case 'F': document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); break;
+    }
+  });
+  deck.addEventListener('click', e=>{ if(e.target.closest('button')) return; next(); });
+  addEventListener('hashchange', ()=>{ if(lockHash) return; const n=parseInt(location.hash.slice(1)); if(n>=1&&n<=slides.length){ si=n-1; fi=0; render(); } });
+  function fit(){ deck.style.transform='scale('+Math.min(innerWidth/1280, innerHeight/720)+')'; }
+  addEventListener('resize', fit); fit();
+  const start=parseInt(location.hash.slice(1)); if(start>=1&&start<=slides.length){ si=start-1; }
+  render();
+  // break countdown - the click must not advance the slide
+  const btn=document.getElementById('cdbtn'), cd=document.getElementById('cd'), back=document.getElementById('cdback');
+  let timer=null;
+  btn.addEventListener('click', e=>{
+    e.stopPropagation();
+    const end=Date.now()+15*60*1000, t=new Date(end);
+    back.textContent='Back in class at '+String(t.getHours()).padStart(2,'0')+':'+String(t.getMinutes()).padStart(2,'0');
+    btn.style.visibility='hidden';
+    clearInterval(timer);
+    timer=setInterval(()=>{
+      const left=Math.max(0,end-Date.now()), m=Math.floor(left/60000), s=Math.floor(left%60000/1000);
+      cd.textContent=m+':'+String(s).padStart(2,'0');
+      if(left<=0){ clearInterval(timer); cd.textContent='0:00'; }
+    },250);
+  });
+})();
+</script>
+</body>
+</html>

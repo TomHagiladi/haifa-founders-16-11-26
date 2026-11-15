@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Practice guide - AI as Your Co-Founder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2f2d2a; --muted:#56534e; --line:#dfe3da; --bg:#ffffff; --red:#AF242A;
+    --p1:#4d8420; --p1t:#eef6e6;
+    --p2:#1f63a8; --p2t:#e8f1fa;
+    --p3:#a14f00; --p3t:#fbf0e4;
+    --p4:#6b3fa0; --p4t:#f2ecf9;
+    --pf:#3b4752; --pft:#eef1f4;
+    --known:#3f7a1c; --assumed:#8a5000; --unknown:#AF242A;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:var(--bg);font-size:21px;line-height:1.65}
+  h1,h2,h3{font-family:'Space Grotesk',Inter,Arial,sans-serif}
+  .skip-link{position:absolute;top:-100%;left:0;background:var(--p1);color:#fff;padding:.75rem 1.5rem;font-weight:700;z-index:200;text-decoration:none}
+  .skip-link:focus{top:0;outline:3px solid #f59e0b;outline-offset:2px}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  a{color:var(--p2)}
+  a:focus-visible,button:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid #f59e0b;outline-offset:3px;border-radius:4px}
+  header.top{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 5vw 20px;border-bottom:5px solid var(--p1);background:linear-gradient(270deg,#f6faf1,#fff)}
+  header.top h1{margin:0;font-size:42px;line-height:1.15;color:var(--p1);font-weight:700}
+  header.top p{margin:6px 0 0;color:var(--muted);font-size:20px}
+  header.top img{height:80px;width:auto;flex:0 0 auto}
+  nav.parts{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);padding:12px 5vw;display:flex;flex-wrap:wrap;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+  nav.parts a{display:inline-block;padding:8px 18px;border-radius:26px;color:#fff;text-decoration:none;font-weight:700;font-size:18px;min-height:44px;line-height:28px}
+  nav.parts a.n1{background:var(--p1)} nav.parts a.n2{background:var(--p2)} nav.parts a.n3{background:var(--p3)} nav.parts a.n4{background:var(--p4)} nav.parts a.nf{background:var(--pf)}
+  main{padding:10px 5vw 40px}
+  .intro{border:1px solid var(--line);border-radius:14px;padding:22px 28px;margin:26px 0;background:#fafaf8}
+  .intro h2{margin:0 0 10px;font-size:28px;line-height:1.25}
+  .intro ol{margin:6px 0 12px;padding-left:30px} .intro li{margin:4px 0}
+  .intro .rule{border-left:6px solid var(--red);padding-left:14px;margin-top:14px}
+  .red{color:var(--red)}
+  .tags{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 4px}
+  .tag{display:inline-block;font-weight:800;font-size:16px;letter-spacing:.5px;border-radius:7px;padding:2px 11px;color:#fff}
+  .tag.k{background:var(--known)} .tag.a{background:var(--assumed)} .tag.u{background:var(--unknown)}
+  section.part{margin:54px 0 10px;--c:var(--p1);--ct:var(--p1t)}
+  section.part.p2{--c:var(--p2);--ct:var(--p2t)} section.part.p3{--c:var(--p3);--ct:var(--p3t)} section.part.p4{--c:var(--p4);--ct:var(--p4t)} section.part.pf{--c:var(--pf);--ct:var(--pft)}
+  section.part > h2{font-size:34px;line-height:1.25;color:#fff;background:var(--c);margin:0 0 8px;padding:12px 24px;border-radius:14px}
+  section.part > .lead{color:var(--muted);margin:8px 2px 18px;font-size:21px}
+  .step{background:#fff;border:1px solid var(--line);border-left:8px solid var(--c);border-radius:14px;padding:20px 26px;margin:20px 0}
+  .step h3{margin:0 0 8px;font-size:27px;color:var(--c);line-height:1.3}
+  .step h3 .n{display:inline-block;background:var(--c);color:#fff;border-radius:9px;padding:0 12px;margin-right:12px;font-size:23px}
+  .step p{margin:8px 0}
+  .tip{border-radius:12px;padding:12px 20px;margin:14px 0;font-size:20px}
+  .tip.info{background:var(--ct);border:1px solid var(--line)}
+  .tip.check{background:#fbeeee;border:1px solid #efc9cb}
+  .tip.check strong{color:var(--red)}
+  .tip.info strong{color:var(--c)}
+  details.fw{border:2px solid var(--c);border-radius:12px;margin:12px 0;background:#fff}
+  details.fw summary{cursor:pointer;padding:12px 18px;font-weight:700;font-size:22px;color:var(--c);min-height:44px;list-style-position:outside}
+  details.fw summary span{font-weight:500;color:var(--muted);font-size:18px}
+  details.fw .inner{padding:0 18px 14px}
+  .prompt-box{margin:14px 0 4px}
+  .prompt-box label{display:block;font-weight:800;font-size:18px;color:var(--c);margin-bottom:6px}
+  .prompt-box label .sug{color:var(--muted);font-weight:500}
+  textarea.prompt{width:100%;min-height:110px;font-family:Inter,Arial,sans-serif;font-size:19px;line-height:1.55;color:var(--ink);background:var(--ct);border:2px solid var(--c);border-radius:12px;padding:14px 18px;resize:vertical}
+  .btns{display:flex;gap:12px;margin-top:10px;flex-wrap:wrap;align-items:center}
+  .btns button{font-family:inherit;font-size:19px;font-weight:800;border-radius:10px;padding:9px 22px;min-height:46px;cursor:pointer;border:2px solid var(--c);background:var(--c);color:#fff}
+  .btns button.sec{background:#fff;color:var(--c)}
+  .btns .ok{color:var(--c);font-weight:800;font-size:19px}
+  .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:12px 0}
+  .links a{display:block;border:2px solid var(--c);border-radius:12px;padding:12px 16px;text-decoration:none;color:var(--ink);background:var(--ct);min-height:44px}
+  .links a b{display:block;color:var(--c);font-size:21px}
+  .links a span{font-size:17px;color:var(--muted)}
+  ul.plain{margin:8px 0;padding-left:26px} ul.plain li{margin:4px 0}
+  footer{border-top:1px solid var(--line);padding:26px 5vw 44px;color:var(--muted);font-size:18px}
+  .accessibility-statement{background:#f6f7f5;border:1px solid var(--line);border-radius:10px;padding:1.2rem 1.6rem;margin-top:1.2rem;max-width:820px}
+  .accessibility-statement h2{font-size:21px;margin:0 0 6px;color:var(--ink)}
+  @media (max-width:1024px){body{font-size:20px} header.top h1{font-size:34px} section.part > h2{font-size:29px}}
+  @media (max-width:768px){nav.parts{position:static} header.top{flex-direction:column-reverse;align-items:flex-start} header.top img{height:58px} .step{padding:16px 16px}}
+  @media (max-width:480px){body{font-size:18px} header.top h1{font-size:28px} section.part > h2{font-size:25px} nav.parts a{font-size:16px;padding:8px 13px} textarea.prompt{font-size:17px} .step h3{font-size:22px}}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="top">
+  <div>
+    <h1>Practice guide &middot; AI as Your Co-Founder</h1>
+    <p>University of Haifa &middot; Haifa Innovation Labs (HIL) &middot; Ideation Program with 50:50 Startups &middot; 16.11.2026</p>
+  </div>
+  <img src="assets/logo.png" alt="Tom Hagiladi - logo">
+</header>
+
+<nav class="parts" aria-label="Practice parts">
+  <a class="n1" href="#part1">1. Think</a>
+  <a class="n2" href="#part2">2. Research</a>
+  <a class="n3" href="#part3">3. Test</a>
+  <a class="n4" href="#part4">4. Pitch</a>
+  <a class="nf" href="#next">Your next week</a>
+</nav>
+
+<main id="main-content">
+
+<div class="intro">
+  <h2>How to use this page</h2>
+  <ol>
+    <li><b>Edit the prompt here, inside the box.</b> Every prompt is a suggestion. Fill in the brackets and make it yours.</li>
+    <li><b>Click "Copy".</b> Your edited version is copied.</li>
+    <li><b>Paste it into any free chat:</b> Gemini, ChatGPT, Claude or another.</li>
+  </ol>
+  <p>Answer in English, Arabic or Hebrew - whatever is easiest. Add "reply in English" or "reply in Arabic" if you want.</p>
+  <p class="rule"><strong class="red">One rule:</strong> nothing the AI says is evidence. Every answer gets a tag:</p>
+  <div class="tags">
+    <span class="tag k">KNOWN</span> evidence from real people: who, when, how many
+  </div>
+  <div class="tags">
+    <span class="tag a">ASSUMED</span> our belief, desk research, or anything the AI suggested
+  </div>
+  <div class="tags">
+    <span class="tag u">UNKNOWN</span> no answer yet - a good answer
+  </div>
+</div>
+
+<!-- ============ PART 1 ============ -->
+<section class="part" id="part1" aria-labelledby="h-part1">
+  <h2 id="h-part1">Part 1 &middot; Think with AI: let the chat interview you</h2>
+  <p class="lead">Two pastes: the master prompt, then one framework under it. One person types, the team answers together.</p>
+
+  <div class="step">
+    <h3><span class="n">1</span>The master prompt</h3>
+    <p>It turns a free chat into a skeptical co-founder who asks one question at a time, tags every answer, and won't fill anything in for you.</p>
+    <div class="prompt-box">
+      <label for="m1">Master prompt &middot; <span class="sug">a suggestion - edit it here</span></label>
+      <textarea class="prompt" id="m1">Act as my skeptical co-founder. Interview me to fill in the framework pasted below. Draw out what I already know; think with me about what I don't. Never fill it in for me.
+
+Rules:
+1. Go one block at a time. Ask ONE question, then wait for my answer.
+2. Tag every answer: KNOWN (evidence I could show: a real person's past behaviour, data, a payment), ASSUMED (my belief, no evidence yet) or UNKNOWN. Say why in one line.
+3. Before judging any claim of mine, restate it as a question ("Is it true that...?").
+4. If an answer is vague, hypothetical or generic ("people would love it", "everyone"), push back: ask for a specific person, a real past example or a number. Still vague after two tries: tag it ASSUMED and move on.
+5. Judge this as a stranger's idea. No praise. Point out contradictions between blocks.
+6. Label any idea of your own "AI SUGGESTION - unverified".
+7. Keep each turn under 80 words. I may answer in Arabic, Hebrew or English; reply in English.
+
+When every block is done, output:
+A. The completed framework as a table (block, my answer, tag).
+B. The 3 riskiest assumptions (ASSUMED or UNKNOWN items that would sink the idea if wrong), ranked, with why.
+C. For each, the cheapest test I can run this week (ideally a conversation about someone's past behaviour, not a pitch) and the result that would change my mind.
+
+First ask: who has the problem, and what is it?
+
+FRAMEWORK:
+[paste one framework from below]</textarea>
+    </div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">2</span>Pick one framework for your stage</h3>
+    <p>Open the one that fits the question your team is stuck on, copy it, and paste it under "FRAMEWORK:".</p>
+
+    <details class="fw">
+      <summary>Is the problem worth solving? &middot; 4 U's + 5 Whys <span>(Michael Skok; Toyota)</span></summary>
+      <div class="inner"><div class="prompt-box"><label for="f1">Framework</label>
+      <textarea class="prompt" id="f1">Problem check (Michael Skok's 4 U's + 5 Whys). Blocks:
+1. The problem in one sentence - who has it, and when.
+2. Unworkable - what breaks, or what does it cost them, when it happens?
+3. Unavoidable - is it forced on them (rules, life stage, routine)?
+4. Urgent - is it in their top 3 priorities right now?
+5. Underserved - what do they use today, and why isn't it enough?
+6. 5 Whys - ask "why does this happen?" until we reach a root cause.
+7. Job statement - "When [situation], they want to [motivation], so they can [outcome]."</textarea></div></div>
+    </details>
+
+    <details class="fw">
+      <summary>Who exactly? &middot; Beachhead market + persona <span>(Bill Aulet, Disciplined Entrepreneurship, MIT)</span></summary>
+      <div class="inner"><div class="prompt-box"><label for="f2">Framework</label>
+      <textarea class="prompt" id="f2">Who exactly? (Disciplined Entrepreneurship, Bill Aulet). Blocks:
+1. Market segments - list 5-10 possible customer groups.
+2. Beachhead - pick ONE: they have money, we can reach them, the need is strong, few competitors, and winning them helps us win the next group.
+3. End-user profile - who they are, their habits, where they gather.
+4. Persona - one real person we know by name who fits. What does their normal day look like?
+5. Next 10 customers - name 10 real people or organisations who fit.
+6. Size check - roughly how many like them exist? Tag every number ASSUMED unless it has a source.</textarea></div></div>
+    </details>
+
+    <details class="fw">
+      <summary>What do they really need? &middot; Value Proposition Canvas <span>(Strategyzer.com)</span></summary>
+      <div class="inner"><div class="prompt-box"><label for="f3">Framework</label>
+      <textarea class="prompt" id="f3">Value Proposition Canvas (Strategyzer.com). Blocks:
+Customer profile (one segment only):
+1. Jobs - what they're trying to get done (practical, social, emotional).
+2. Pains - what annoys them, risks, obstacles. Rank the top 3.
+3. Gains - the outcomes they want. Rank the top 3.
+Value map (only after the top 3 pains are ranked):
+4. Products and services.
+5. Pain relievers - which top pain does each one remove?
+6. Gain creators - which top gain does each one create?
+7. Fit - which top pains and gains are NOT addressed?</textarea></div></div>
+    </details>
+
+    <details class="fw">
+      <summary>Which solution? &middot; Opportunity Solution Tree <span>(Teresa Torres)</span></summary>
+      <div class="inner"><div class="prompt-box"><label for="f4">Framework</label>
+      <textarea class="prompt" id="f4">Opportunity Solution Tree (Teresa Torres). Blocks:
+1. Outcome - one measurable result we want (for example: "students who order a second time").
+2. Opportunities - customer needs, pains and wishes, drawn from real stories. Test each one: is there more than one way to solve it? If not, it is a solution in disguise.
+3. Target opportunity - choose one.
+4. Solutions - at least 3 different solutions for it, before we choose.
+5. Assumption tests - for each solution: what must be true, and how could we test it fast?</textarea></div></div>
+    </details>
+
+    <details class="fw">
+      <summary>How does it make money? &middot; Lean Canvas <span>(Ash Maurya)</span></summary>
+      <div class="inner"><div class="prompt-box"><label for="f5">Framework</label>
+      <textarea class="prompt" id="f5">Lean Canvas (Ash Maurya). Fill in this order:
+1. Problem - the top 3 problems + existing alternatives (how they solve it today).
+2. Customer segments - + early adopters (who feels it most).
+3. Unique value proposition - one clear sentence + a short "X for Y" concept.
+4. Solution - the simplest answer to each top problem.
+5. Channels - how we reach customers.
+6. Revenue streams - who pays, how much, how often.
+7. Cost structure - the main costs.
+8. Key metrics - the few numbers that show it's working.
+9. Unfair advantage - something that can't easily be copied or bought.</textarea></div></div>
+    </details>
+
+    <details class="fw">
+      <summary>What could kill us? &middot; Pre-mortem <span>(Gary Klein)</span></summary>
+      <div class="inner"><div class="prompt-box"><label for="f6">Framework</label>
+      <textarea class="prompt" id="f6">Pre-mortem (Gary Klein). Blocks:
+1. It is one year from today. The startup has failed.
+2. Ask me for every reason it failed, one at a time. Don't suggest reasons until I've given all of mine.
+3. Then add the reasons I missed, labelled AI SUGGESTION.
+4. Turn the top 3 reasons into assumptions: "We believe that...".
+5. For each one, the cheapest test we can run this week.</textarea></div></div>
+    </details>
+
+    <div class="tip info"><strong>Save your table.</strong> When the chat gives you the final table, copy it into a doc or a note. You'll need it in parts 3 and 4. If a free chat runs out of messages, paste the table into a new chat and continue.</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">3</span>Three habits that make the chat more honest</h3>
+    <ul class="plain">
+      <li><b>Ask, don't tell:</b> "Is it true that...?" instead of "Students need...".</li>
+      <li><b>Third person:</b> "A student team proposes..." instead of "my idea".</li>
+      <li><b>Push back:</b> reply "Are you sure?" If its critique collapses, it was weak.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PART 2 ============ -->
+<section class="part p2" id="part2" aria-labelledby="h-part2">
+  <h2 id="h-part2">Part 2 &middot; Research outward</h2>
+  <p class="lead">A language model is for ideas and questions. For facts, numbers and competitors, use a tool that shows its sources - and open them.</p>
+
+  <div class="step">
+    <h3><span class="n">1</span>Deep Research: a cited market report</h3>
+    <p>An agent reads dozens of sources for 5-10 minutes and writes a report with citations. On a free account, use <b>Gemini</b> (choose Deep Research under the tools menu). ChatGPT gives a limited number of free runs; Perplexity gives one a month.</p>
+    <div class="prompt-box">
+      <label for="r1">Prompt &middot; <span class="sug">a suggestion - edit it here</span></label>
+      <textarea class="prompt" id="r1">Research the market for [one-sentence description of our startup] in [Israel / Palestine / the region].
+I need:
+1. Who has this problem, and how many of them (with sources).
+2. How people solve it today.
+3. The 5-10 closest competitors or alternatives: name, link, price, what they do well, what's missing.
+4. Trends from the last 2 years.
+5. What could make this hard (regulation, habits, big players).
+Cite a source for every number. If you can't find a source, say so - don't estimate silently.</textarea>
+    </div>
+    <div class="tip check"><strong>Before you trust it:</strong> open 3 of its sources. Any number without a source is ASSUMED. Then ask it: "What did you NOT find?"</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">2</span>Gemini Notebook: think across your own materials</h3>
+    <p>Gemini Notebook (formerly NotebookLM) answers from <b>your</b> sources only, with citations. Make one notebook for your market and load: interview notes, competitor websites, papers, a YouTube video, your Deep Research report.</p>
+    <div class="links"><a href="https://notebooklm.google/" target="_blank" rel="noopener"><b>Gemini Notebook</b><span>notebooklm.google</span></a></div>
+    <div class="prompt-box">
+      <label for="r2">Questions to ask across all your sources &middot; <span class="sug">edit them here</span></label>
+      <textarea class="prompt" id="r2">1. What are the 3 problems people mention most? Quote them.
+2. Where do my sources disagree?
+3. What do competitors promise, and what do their users complain about?
+4. Which of my assumptions do these sources support, and which do they contradict? [paste your table]
+5. What's missing - what should I find out next?</textarea>
+    </div>
+    <div class="tip info"><strong>Also try:</strong> a mind map of your market, or an audio overview to listen to on the bus - it can be made in Arabic too.</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">3</span>Quick checks with Perplexity</h3>
+    <div class="prompt-box">
+      <label for="r3">Prompt &middot; <span class="sug">a suggestion - edit it here</span></label>
+      <textarea class="prompt" id="r3">Who are the main competitors for [what we do] in [region]? Make a table: name, link, price, target customer, and the main weakness users complain about in reviews. A source for every row.</textarea>
+    </div>
+    <div class="prompt-box">
+      <label for="r4">The question every AI startup must ask &middot; <span class="sug">edit it here</span></label>
+      <textarea class="prompt" id="r4">A student team proposes [one-sentence description]. What happens if ChatGPT, Gemini or Google adds this as a feature next year? What part of it would still be hard to copy?</textarea>
+    </div>
+  </div>
+
+  <div class="step" id="patents">
+    <h3><span class="n">4</span>Patents: has someone already done it?</h3>
+    <p>A first sanity check, 15 minutes. <b>Describe the idea without the secret part</b>, and turn off training in your chat first (see "Your next week" below).</p>
+    <div class="prompt-box">
+      <label for="r5">Step 1 - keywords and classes &middot; <span class="sug">edit it here</span></label>
+      <textarea class="prompt" id="r5">Here is a short description of an idea: [3 sentences - the problem, the main parts and how they work, what's new. No secret details].
+List:
+1. 5 core technical elements.
+2. 3-5 synonyms or technical terms for each.
+3. 3 likely CPC patent classes, with a one-line definition each.
+4. 3 search strings I can paste into Google Patents.
+Do not cite specific patents or patent numbers.</textarea>
+    </div>
+    <p><b>Step 2 - search.</b> Paste your description into PQAI, and the search strings into Google Patents (tick "Include non-patent literature"). Optional: ask Perplexity Patents in plain words.</p>
+    <div class="links">
+      <a href="https://search.projectpq.ai/" target="_blank" rel="noopener"><b>PQAI</b><span>free AI search</span></a>
+      <a href="https://patents.google.com/" target="_blank" rel="noopener"><b>Google Patents</b><span>free, many countries, translated</span></a>
+      <a href="https://www.perplexity.ai/patents" target="_blank" rel="noopener"><b>Perplexity Patents</b><span>plain-language questions</span></a>
+      <a href="https://patentscope.wipo.int/" target="_blank" rel="noopener"><b>WIPO PATENTSCOPE</b><span>Arabic interface</span></a>
+      <a href="https://worldwide.espacenet.com/" target="_blank" rel="noopener"><b>Espacenet</b><span>European Patent Office</span></a>
+      <a href="https://israelpatents.justice.gov.il/search/en/home" target="_blank" rel="noopener"><b>Israel Patent Office</b><span>Israeli filings</span></a>
+    </div>
+    <p><b>Step 3 - read the 3 closest.</b> For each: the abstract, claim 1, one drawing, the number, the date, the legal status. Then click "Similar" on the closest one.</p>
+    <div class="prompt-box">
+      <label for="r6">Step 4 - compare &middot; <span class="sug">edit it here</span></label>
+      <textarea class="prompt" id="r6">Here are the abstracts and first claims of the 3 closest patents I found: [paste]. Make a table: the elements of my idea against each patent. Then tell me what is actually different in my idea. Be strict.</textarea>
+    </div>
+    <div class="tip check"><strong>Know the limits.</strong> This is not legal advice, and finding nothing does not mean the idea is new. Chats invent patent numbers - open every number on Google Patents. File before you publish: Europe and Israel have no general grace period. For free expert help, look for a WIPO innovation support centre (TISC) - for example at An-Najah University, Nablus.</div>
+  </div>
+</section>
+
+<!-- ============ PART 3 ============ -->
+<section class="part p3" id="part3" aria-labelledby="h-part3">
+  <h2 id="h-part3">Part 3 &middot; Test before you build</h2>
+  <p class="lead">An MVP takes weeks. Your riskiest assumption can be tested this week - without code.</p>
+
+  <div class="step">
+    <h3><span class="n">1</span>The assumption map: what to test first</h3>
+    <div class="prompt-box">
+      <label for="t1">Prompt &middot; <span class="sug">a suggestion - edit it here</span></label>
+      <textarea class="prompt" id="t1">Here is our table from the interview: [paste].
+1. Rewrite every ASSUMED and UNKNOWN item as "We believe that...".
+2. Tag each one: Desirability (do they want it?), Feasibility (can we build and deliver it?), or Viability (does the money work?).
+3. Score each: importance 1-5 ("if this is wrong, we fail") and evidence 1-5.
+4. Sort them: important + little evidence first. That top item is what we test first.</textarea>
+    </div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">2</span>The test card</h3>
+    <p>Write the number before you run the test - otherwise every result looks like success.</p>
+    <div class="prompt-box">
+      <label for="t2">Prompt &middot; <span class="sug">a suggestion - edit it here</span></label>
+      <textarea class="prompt" id="t2">Our riskiest assumption: [paste].
+Help me write a test card:
+We believe that...
+To verify that, we will...
+We measure...
+We are right if at least X% of Y will Z, within [time].
+The test must take less than a week, cost nothing, and need no code. Suggest 3 options, then help me pick one.</textarea>
+    </div>
+    <div class="tip info"><strong>Example:</strong> We believe students will buy evening leftovers at half price. We'll put a poster with a sign-up link at the cafeteria. We're right if at least 15% of students who scan it join the waitlist within 3 days.</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">3</span>Option A &middot; A landing page ("fake door")</h3>
+    <p>A page for a product that doesn't exist yet, with a "join the waitlist" button. First make a short Google Form for the sign-ups, then build the page.</p>
+    <div class="prompt-box">
+      <label for="t3">Prompt &middot; <span class="sug">a suggestion - edit it here</span></label>
+      <textarea class="prompt" id="t3">Build a one-page landing page as a single HTML file for [our startup].
+- A headline for [our early adopters].
+- The problem in their words.
+- 3 benefits.
+- A "Join the waitlist" button that opens [our Google Form link].
+- Say clearly that it's coming soon.
+No invented numbers, no fake testimonials, no fake logos. It must look good on a phone.</textarea>
+    </div>
+    <div class="tip info"><strong>How to share it:</strong> in Gemini, build it as an interactive app and export it to Google Sites (it starts as a private draft - publish it). In Claude, publish the artifact and copy the link. Or download the file and send it.</div>
+    <div class="tip check"><strong>Be honest:</strong> the page says "coming soon". Never take money for something that doesn't exist.</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">4</span>Option B &middot; An interview script, and a rehearsal</h3>
+    <div class="prompt-box">
+      <label for="t4">Rewrite your questions (the Mom Test) &middot; <span class="sug">edit it here</span></label>
+      <textarea class="prompt" id="t4">Here are my customer-interview questions: [paste].
+Rewrite them using the Mom Test rules: talk about their life, not my idea; ask about specific past events, not the future; never "would you use it?" or "would you pay?".
+Flag every question that invites a compliment or a guess about the future.</textarea>
+    </div>
+    <div class="prompt-box">
+      <label for="t5">Rehearse with an AI customer &middot; <span class="sug">edit it here</span></label>
+      <textarea class="prompt" id="t5">Play [role, for example: a second-year student who eats on campus three times a week]. Context: [their situation]. Today they handle the problem by [what they do now].
+You're busy and a bit skeptical. Answer only what I ask, and never guess my solution. If I ask leading or "would you..." questions, answer politely and vaguely, like real people do.
+When I type DEBRIEF, step out of the role and grade my questions against the Mom Test rules.</textarea>
+    </div>
+    <div class="tip check"><strong>Rehearsal, not evidence.</strong> AI customers are too positive and too shallow. Nothing they say is KNOWN. Use it to practise asking - then talk to real people.</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">5</span>Option C &middot; A patent check</h3>
+    <p>The four steps are in Part 2: <a href="#patents">go to the patent check</a>.</p>
+  </div>
+</section>
+
+<!-- ============ PART 4 ============ -->
+<section class="part p4" id="part4" aria-labelledby="h-part4">
+  <h2 id="h-part4">Part 4 &middot; Go outward</h2>
+  <p class="lead">A pitch deck, a partner, a post - each one built from your table, so it says only what you know.</p>
+
+  <div class="step">
+    <h3><span class="n">1</span>A pitch deck, built in a chat</h3>
+    <p>Any free chat can build a deck as one HTML file: a web page that works like a slideshow. You don't need to read any code.</p>
+    <div class="prompt-box">
+      <label for="g1">Prompt &middot; <span class="sug">a suggestion - edit it here</span></label>
+      <textarea class="prompt" id="g1">Here is our startup table: [paste].
+Build an 8-slide pitch deck as ONE HTML file:
+Problem / Solution / Why now / Market / Competition / Business model / Team / Ask.
+Rules:
+- Only KNOWN items are stated as facts. ASSUMED items are written "We believe...".
+- No invented numbers, logos or quotes.
+- Large text, one idea per slide.
+- The arrow keys and the space bar move between slides.
+Return the full file.</textarea>
+    </div>
+    <div class="tip info"><strong>Where to see it:</strong> Claude shows it as an artifact next to the chat; Gemini opens it in Canvas; in ChatGPT, open the preview of the code. All three let you download it. Open the file in a browser and press F11 for full screen.</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">2</span>Finding partners</h3>
+    <div class="prompt-box">
+      <label for="g2">Prompt &middot; <span class="sug">a suggestion - edit it here</span></label>
+      <textarea class="prompt" id="g2">Our team: [names and skills]. Our startup: [one sentence]. Our riskiest assumption: [paste].
+1. First, ask each of us who we already know that could help.
+2. What skills are we missing?
+3. Describe the co-founder or advisor we need.
+4. Where do people like that gather, online and in [Haifa / Ramallah / Bethlehem / ...]?
+5. Give me 3 LinkedIn search strings.
+6. Draft a first message under 80 words: specific, about them, one clear ask.</textarea>
+    </div>
+    <div class="tip info"><strong>Free LinkedIn</strong> limits searches and personal notes each month - so make the first message count.</div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">3</span>A post that tests your idea</h3>
+    <div class="prompt-box">
+      <label for="g3">Prompt &middot; <span class="sug">a suggestion - edit it here</span></label>
+      <textarea class="prompt" id="g3">Write a LinkedIn post, under 150 words, that tests this assumption: [paste].
+Tell the problem through one real story (no invented details), ask readers one question about their own experience, and end with a link to our waitlist: [link]. No hype words.</textarea>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEXT WEEK ============ -->
+<section class="part pf" id="next" aria-labelledby="h-next">
+  <h2 id="h-next">Your next week</h2>
+
+  <div class="step">
+    <h3><span class="n">1</span>One assumption, one test, one number</h3>
+    <div class="prompt-box">
+      <label for="n1">Post this in the chat &middot; <span class="sug">fill it in</span></label>
+      <textarea class="prompt" id="n1">Our riskiest assumption is [...].
+We'll test it by [...].
+We're right if at least [X]% of [Y] will [Z], by [date].</textarea>
+    </div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">2</span>Keep your idea private</h3>
+    <p>Free chats may use your conversations to train their models. Turn it off before you paste anything sensitive:</p>
+    <ul class="plain">
+      <li><b>ChatGPT:</b> Settings &rarr; Data controls &rarr; "Improve the model for everyone" off. Or use a temporary chat.</li>
+      <li><b>Gemini:</b> Activity &rarr; turn off "Keep Activity". Or use a temporary chat.</li>
+      <li><b>Claude:</b> Settings &rarr; Privacy &rarr; turn off model training. Or use an incognito chat.</li>
+      <li><b>Perplexity:</b> Settings &rarr; turn off "AI data retention".</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">3</span>The tools from today</h3>
+    <div class="links">
+      <a href="https://gemini.google.com/" target="_blank" rel="noopener"><b>Gemini</b><span>Deep Research, Canvas</span></a>
+      <a href="https://notebooklm.google/" target="_blank" rel="noopener"><b>Gemini Notebook</b><span>your own sources</span></a>
+      <a href="https://chatgpt.com/" target="_blank" rel="noopener"><b>ChatGPT</b><span>works without signing in</span></a>
+      <a href="https://claude.ai/" target="_blank" rel="noopener"><b>Claude</b><span>artifacts: decks and pages</span></a>
+      <a href="https://www.perplexity.ai/" target="_blank" rel="noopener"><b>Perplexity</b><span>answers with sources</span></a>
+      <a href="https://search.projectpq.ai/" target="_blank" rel="noopener"><b>PQAI</b><span>patent search</span></a>
+    </div>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">4</span>Where the frameworks come from</h3>
+    <ul class="plain">
+      <li>4 U's - Michael Skok &middot; 5 Whys - Toyota Production System</li>
+      <li>Beachhead market and persona - Bill Aulet, "Disciplined Entrepreneurship"</li>
+      <li>Value Proposition Canvas - Strategyzer.com</li>
+      <li>Opportunity Solution Tree - Teresa Torres, Product Talk</li>
+      <li>Lean Canvas - Ash Maurya</li>
+      <li>Pre-mortem - Gary Klein</li>
+      <li>Assumption mapping and test cards - David J. Bland and Alexander Osterwalder, "Testing Business Ideas"</li>
+      <li>"At least X% of Y will Z" and fake doors - Alberto Savoia, "The Right It"</li>
+      <li>The Mom Test - Rob Fitzpatrick</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>Tom Hagiladi &middot; AI for learning organisations &middot; <a href="https://www.tomhagiladi.com/" target="_blank" rel="noopener">tomhagiladi.com</a></p>
+  <div class="accessibility-statement">
+    <h2>Accessibility Statement</h2>
+    <p>This website complies with Israeli Standard SI 5568, based on WCAG 2.0 Level AA guidelines, as required by Regulation 35 of Israel's Equal Rights for Persons with Disabilities Regulations.</p>
+    <p>If you encounter any accessibility issues, please contact us:</p>
+    <p><strong>Accessibility Coordinator:</strong> Tom Hagiladi<br>
+    <strong>Email:</strong> <a href="mailto:tomhagiladi@gmail.com">tomhagiladi@gmail.com</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  document.querySelectorAll('textarea.prompt').forEach(function (ta) {
+    ta.dataset.orig = ta.value;
+    var box = document.createElement('div');
+    box.className = 'btns';
+    var copy = document.createElement('button');
+    copy.type = 'button';
+    copy.textContent = 'Copy';
+    copy.setAttribute('aria-label', 'Copy the text in this box');
+    var ok = document.createElement('span');
+    ok.className = 'ok';
+    ok.setAttribute('role', 'status');
+    copy.addEventListener('click', function () {
+      var done = function () { ok.textContent = 'Copied - now paste it into the chat'; setTimeout(function () { ok.textContent = ''; }, 2600); };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(ta.value).then(done, function () { ta.select(); document.execCommand('copy'); done(); });
+      } else { ta.select(); document.execCommand('copy'); done(); }
+    });
+    box.appendChild(copy);
+    var reset = document.createElement('button');
+    reset.type = 'button';
+    reset.className = 'sec';
+    reset.textContent = 'Back to the original';
+    reset.addEventListener('click', function () { ta.value = ta.dataset.orig; fit(ta); });
+    box.appendChild(reset);
+    box.appendChild(ok);
+    ta.parentNode.appendChild(box);
+    fit(ta);
+    ta.addEventListener('input', function () { fit(ta); });
+  });
+  function fit(ta) { if (!ta.offsetParent) return; ta.style.height = 'auto'; ta.style.height = (ta.scrollHeight + 6) + 'px'; }
+  addEventListener('load', function () { document.querySelectorAll('textarea.prompt').forEach(fit); });
+  document.querySelectorAll('details.fw').forEach(function (d) {
+    d.addEventListener('toggle', function () { if (d.open) d.querySelectorAll('textarea.prompt').forEach(fit); });
+  });
+})();
+</script>
+</body>
+</html>
