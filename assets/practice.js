@@ -40,7 +40,7 @@
     ta.addEventListener('input', function () { fit(ta); });
   });
   addEventListener('load', function () { document.querySelectorAll('textarea.prompt').forEach(fit); });
-  document.querySelectorAll('details.fw').forEach(function (d) {
+  document.querySelectorAll('details').forEach(function (d) {
     d.addEventListener('toggle', function () { if (d.open) d.querySelectorAll('textarea.prompt').forEach(fit); });
   });
 
