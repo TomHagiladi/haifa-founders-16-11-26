@@ -36,6 +36,8 @@ ul.sq li:before{content:"";position:absolute;left:4px;top:15px;width:13px;height
 ol.steps{list-style:none;counter-reset:s}
 ol.steps li{counter-increment:s;position:relative;padding-left:64px;margin:14px 0;min-height:46px}
 ol.steps li:before{content:counter(s);position:absolute;left:0;top:0;width:46px;height:46px;border-radius:10px;background:var(--gd);color:#fff;font-weight:800;font-size:25px;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif}
+ol.steps.p2 li{font-size:25px;margin:10px 0;line-height:1.35}
+ol.steps .eg{display:block;font-size:21px;line-height:1.3;color:var(--ink);background:var(--gt);border-left:4px solid var(--g);border-radius:6px;padding:4px 10px;margin-top:6px}
 .cols{display:flex;gap:24px}
 .card{flex:1;background:#fff;border:2px solid var(--line);border-radius:14px;padding:22px 24px}
 .card h3{font-size:28px;margin-bottom:8px;color:var(--gd)}
@@ -559,14 +561,14 @@ button:focus-visible,a:focus-visible{outline:3px solid #f59e0b;outline-offset:3p
   <h2>Practice 2 &middot; Design your test</h2>
   <div class="split" style="align-items:center">
     <div class="tx">
-      <ol class="steps">
-        <li class="f">Take your <b>riskiest assumption</b> from practice 1</li>
-        <li class="f">Decide <b>before</b> you test which result means <span class="r">you're wrong</span> - a real number</li>
-        <li class="f">Pick one:
-          <div style="margin-top:8px"><span class="chip">Landing page</span><span class="chip">Interview script + AI rehearsal</span><span class="chip">Patent check</span></div></li>
+      <ol class="steps p2">
+        <li class="f">Take your <b>riskiest assumption</b> from practice 1<span class="eg">e.g. "Students would buy a leftover meal at half price"</span></li>
+        <li class="f">Decide <b>before</b> you test which result means <span class="r">you're wrong</span> - a real number<span class="eg">e.g. "Fewer than 20 sign-ups in 3 days = we were wrong"</span></li>
+        <li class="f">Pick one: <span class="chip">Landing page</span><span class="chip">Interview script + AI rehearsal</span><span class="chip">Patent check</span><span class="eg">e.g. a landing page, and a poster with a QR code at the cafeteria that opens a Google Form</span></li>
+        <li class="f">This week: run it, count, and compare with <b>your number</b><span class="eg">e.g. 34 sign-ups &rarr; keep going. 8 sign-ups &rarr; rethink the price or the hour</span></li>
       </ol>
     </div>
-    <div class="im" style="flex:0 0 250px"><div class="qr-box f"><img src="assets/qr.svg" alt="QR code to the practice guide"><span>Practice guide</span></div></div>
+    <div class="im" style="flex:0 0 230px"><div class="qr-box f"><img src="assets/qr.svg" alt="QR code to the practice guide"><span>Practice guide</span></div></div>
   </div>
 </section>
 
