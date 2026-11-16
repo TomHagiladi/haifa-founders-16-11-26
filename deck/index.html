@@ -50,6 +50,9 @@ ol.steps li:before{content:counter(s);position:absolute;left:0;top:0;width:46px;
 .note{background:#fbeeee;border-left:7px solid var(--red);border-radius:8px;padding:16px 22px;font-size:25px;line-height:1.4}
 .lt{display:flex;flex-direction:column}
 .lrn{font-size:20px;line-height:1.35;margin-top:auto;padding-top:10px;border-top:3px solid var(--g)}
+.card p.wh{font-size:21px;line-height:1.3}
+.card p.exm{font-size:20px;line-height:1.3;background:#fff;border-left:4px solid var(--g);border-radius:6px;padding:5px 10px;margin:6px 0}
+.lt .lrn{font-size:19px;padding-top:5px}
 .note.g{background:var(--gt);border-left-color:var(--g);color:var(--ink);font-weight:400}
 table{border-collapse:collapse;width:100%;font-size:22px}
 th{background:var(--gd);color:#fff;font-weight:700;padding:11px 16px;text-align:left}
@@ -504,14 +507,14 @@ button:focus-visible,a:focus-visible{outline:3px solid #f59e0b;outline-offset:3p
 <!-- 22 NO-CODE TESTS -->
 <section class="slide">
   <h2>Tests <span class="r">without code</span></h2>
-  <div class="grid g4" style="margin-bottom:18px;flex:1">
-    <div class="card tint lt f"><h3 style="font-size:26px">Fake door</h3><p style="font-size:21px">A page and a "join" button for a product that doesn't exist yet</p><p class="lrn">You learn: do they want it enough to <b>act</b>?</p></div>
-    <div class="card tint lt f"><h3 style="font-size:26px">Mechanical Turk</h3><p style="font-size:21px">It looks automatic - but you do the work <b>by hand</b>, behind the scenes</p><p class="lrn">You learn: is the result worth having - <b>before</b> you build the tech?</p></div>
-    <div class="card tint lt f"><h3 style="font-size:26px">Pinocchio</h3><p style="font-size:21px">A model that doesn't work - carry it and "use" it for a week</p><p class="lrn">You learn: when would you <b>really</b> reach for it?</p></div>
-    <div class="card tint lt f"><h3 style="font-size:26px">Provincial</h3><p style="font-size:21px">The real thing, tiny: 1 cafeteria, 1 evening, 10 students</p><p class="lrn">You learn: does it work with <b>real people</b>?</p></div>
+  <p style="font-size:22px;margin:0 0 6px">Don't ask people if they would use it. <b>Make them act - and watch.</b></p>
+  <div class="grid g2" style="flex:1;align-content:stretch;grid-template-rows:1fr 1fr;gap:10px;margin-bottom:8px">
+    <div class="card tint lt f" style="padding:9px 18px"><h3 style="font-size:24px;margin-bottom:2px">Fake door</h3><p class="wh">A "join" button for a product that doesn't exist yet.</p><p class="exm"><b>Example:</b> a cafeteria poster - "Tonight's leftovers, half price - join" - with a QR code.</p><p class="lrn">You learn: do they want it enough to <b>act</b>?</p></div>
+    <div class="card tint lt f" style="padding:9px 18px"><h3 style="font-size:24px;margin-bottom:2px">Mechanical Turk</h3><p class="wh">Looks automatic - but you do it <b>by hand</b>, behind the scenes.</p><p class="exm"><b>Example:</b> at 18:00 you call 3 cafeterias and post the leftovers in a students' WhatsApp group.</p><p class="lrn">You learn: is the result worth it - <b>before</b> you build the tech?</p></div>
+    <div class="card tint lt f" style="padding:9px 18px"><h3 style="font-size:24px;margin-bottom:2px">Pinocchio</h3><p class="wh">A model that doesn't work - people "use" it in real life.</p><p class="exm"><b>Example:</b> 5 students get a picture of the app screen, and text you each time they'd have opened it.</p><p class="lrn">You learn: would they <b>really</b> use it - and when?</p></div>
+    <div class="card tint lt f" style="padding:9px 18px"><h3 style="font-size:24px;margin-bottom:2px">Provincial</h3><p class="wh">The real thing - tiny, and in one place.</p><p class="exm"><b>Example:</b> one evening, one cafeteria, 10 students. You sell the leftovers yourself, at the till.</p><p class="lrn">You learn: what breaks in <b>real life</b>?</p></div>
   </div>
-  <div class="note g f" style="font-size:24px;margin-bottom:22px">A chat builds a landing page in minutes: <b>an app in Gemini &rarr; Google Sites</b>, or a <b>Claude artifact</b> with a public link. Be honest on the page: "coming soon - join the waitlist".</div>
-  <div class="src">Pretotyping techniques - Alberto Savoia</div>
+  <div class="src">Pretotyping - Alberto Savoia, "The Right It" &middot; Be honest: "coming soon", and never take money for something that doesn't exist.</div>
 </section>
 
 <!-- 23 MOM TEST -->
